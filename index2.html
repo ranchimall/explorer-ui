@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Ranchi Mall FLO Explorer</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Ranchi Mall" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<style>
+				@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+		
+		/*body {
+		  position:relative;
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 300;
+		  font-size: 1.05em;
+		  margin: 40px;
+		  text-align:justify;
+		
+		}*/
+		
+		
+		table {
+		  border-collapse: collapse;
+		}
+		
+		table, tr, th, td {
+			border: 1px solid #e3e3e3;
+		}
+		
+		button {
+		  background-color: #4CAF50; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  border-radius: 8px;
+		  cursor: pointer;
+		  -webkit-transition-duration: 0.4s; /* Safari */
+		  transition-duration: 0.4s;
+		}
+		
+		.activeButton {
+		  color: black;
+		}
+		
+		button:hover {
+		  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		
+		.firstColumn {
+		position: absolute;;
+		left:200px;
+		}
+
+		.secondColumn {																																																																																		
+		position: absolute;
+		left:450px;
+		top:194px;
+		}
+		
+		.dispBalTable {
+		 border: 1px solid #ffffff;
+		}
+		
+		</style>
+
+		<script>document.documentElement.className = 'js';</script>
+	</head>
+	<body class="demo-2">
+		<svg class="hidden">
+			<symbol id="icon-arrow" viewBox="0 0 24 24">
+				<title>arrow</title>
+				<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+			</symbol>
+			<symbol id="icon-drop" viewBox="0 0 24 24">
+				<title>drop</title>
+				<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
+			</symbol>
+			<symbol id="icon-caret" viewBox="0 0 24 24">
+				<title>caret</title>
+				<polygon points="15.7,16.6 11.1,12 15.7,7.4 14.3,6 8.3,12 14.3,18"/>
+			</symbol>
+			<symbol id="icon-menu" viewBox="0 0 24 24">
+				<title>menu</title>
+				<path d="M23.8,6H0.1V3h23.7V6z M23.8,10.5H0.1v3h23.7V10.5z M14.2,18h-14v3h14V18z"/>
+			</symbol>
+			<symbol id="icon-cross" viewBox="0 0 24 24">
+				<title>cross</title>
+				<path d="M14.1,12l7.3,7.3l-2.1,2.1L12,14.1l-7.3,7.3l-2.1-2.1L9.9,12L2.6,4.7l2.1-2.1L12,9.9l7.3-7.3l2.1,2.1L14.1,12z"/>
+			</symbol>
+		</svg>
+		<main class="view">
+			<div class="content">
+				<div class="deco">
+					<!--<p class="deco__text">elementum recolligo huic commodo locus mihi vestri vox</p>-->
+				</div>
+				<header class="codrops-header">
+					<div class="codrops-links">
+						<button class="btn btn--menu">
+							<svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
+							<svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+						</button>
+						<a class="codrops-icon codrops-icon--prev" href="https://tympanus.net/Development/StackMotionHoverEffects/" title="Previous Demo"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
+						<a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=30460" title="Back to the article"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
+					</div>
+					<p id="contractText" class="codrops-header__info"></p>
+					<nav class="demos">
+						<a class="demo demo--current" href="index2.html">2</a>
+						<a class="demo" href="index3.html">View All</a>
+					</nav>
+				</header>
+			</div>
+			<nav class="tabsnav tabsnav--vertical tabsnav--zeru">
+				<div class="tabsnav__item">
+					<div class="tabsnav__bar"></div>
+					<h3 class="tabsnav__title">Play</h3>
+				</div>
+				<div class="tabsnav__item">
+					<div class="tabsnav__bar"></div>
+					<h3 class="tabsnav__title">Participate</h3>
+				</div>
+				<div class="tabsnav__item">
+					<div class="tabsnav__bar"></div>
+					<h3 class="tabsnav__title">Track tokens</h3>
+				</div>
+				<div class="tabsnav__item">
+					<div class="tabsnav__bar"></div>
+					<h3 class="tabsnav__title">Track Contracts</h3>
+				</div>
+			</nav>
+			<div class="tabscontent">
+				<div class="tabscontent__item">
+					<div class="column">
+						<h3 class="column__title">03/09/2017</h3>
+						<h4 class="column__text">velocity</h4>
+						<h4 class="column__text">gaussian</h4>
+						<h4 class="column__text">amphiphilic</h4>
+						<h4 class="column__text">magnitude</h4>
+						<h4 class="column__text">saponification</h4>
+					</div>
+					<div class="column">
+						<h3 class="column__title">07/23/2017</h3>
+						<h4 class="column__text">hematocrit</h4>
+						<h4 class="column__text">ionization</h4>
+						<h4 class="column__text">geocentric</h4>
+						<h4 class="column__text">neutrophil</h4>
+						<h4 class="column__text">energetic</h4>
+					</div>
+				</div>
+				<div class="tabscontent__item">
+						<!-- This is where the code for webwallet will be up -->
+				</div>
+				<div class="tabscontent__item">
+					<!-- Token Tracking -->
+					<div id='token_column1' class="column">
+						<h3 class="column__title">Active Tokens</h3>
+						<!--<h4 class="column__text">energetic</h4>
+						<h4 class="column__text">hematocrit</h4>
+						<h4 class="column__text">gaussian</h4>
+						<h4 class="column__text">amphiphilic</h4>
+						<h4 class="column__text">neutrophil</h4>-->
+					</div>
+					<div id='token_column2' class="column">
+						<h3 class="column__title">Enter Address/Token name</h3>
+						<div>
+							<input type="text" id='tokenName' name="tokenName">
+							<button type="submit" id='tokenName_submit'>Submit</button>
+						</div>
+						<!--<h4 class="column__text">saponification</h4>
+						<h4 class="column__text">velocity</h4>
+						<h4 class="column__text">ionization</h4>
+						<h4 class="column__text">geocentric</h4>
+						<h4 class="column__text">magnitude</h4>-->
+					</div>
+				</div>
+				<div class="tabscontent__item">
+					<!-- Smart Contract Tracking -->
+					<div id='contract_column1' class="column">
+						<h3 class="column__title">Top Contracts</h3>
+						<!--<h4 class="column__text">energetic</h4>
+						<h4 class="column__text">hematocrit</h4>
+						<h4 class="column__text">gaussian</h4>
+						<h4 class="column__text">amphiphilic</h4>
+						<h4 class="column__text">neutrophil</h4>-->
+					</div>
+					<div id='contract_column2' class="column">
+						<h3 class="column__title">Enter Address/Contract name</h3>
+						<div>
+							<input type="text" id='addressName' name="addressName">
+							<button type="submit" id='addressName_submit'>Submit</button>
+						</div>
+
+						<!--<form name="myForm" onsubmit="return validateForm()" method="post">
+							<input type="text" id='addressName' name="vivek">
+							<input type="submit" value="Submit">
+						</form>
+						<input class="form-control" id="contractAddInput" length="34" name="address" placeholder="Enter FLO address" required="" type="text" value="">
+						<h4 class="column__text">saponification</h4>
+						<h4 class="column__text">velocity</h4>
+						<h4 class="column__text">ionization</h4>
+						<h4 class="column__text">geocentric</h4>
+						<h4 class="column__text">magnitude</h4>-->
+					</div>		
+				</div>
+				<button class="btn btn--back"><svg class="icon icon--caret"><use xlink:href="#icon-caret"></use></svg></button>
+			</div>
+		</main>
+		<script src="js/anime.min.js"></script>
+		<script src="js/enquire.min.js"></script>
+		<script src="js/tabsnav.js"></script>
+		<script src="js/demo2.js"></script>
+
+		<script>
+			const contractForm = {
+				addressName: document.getElementById('addressName'),
+				submit: document.getElementById('addressName_submit')
+        	};
+
+			contractForm.submit.addEventListener('click', () => {
+				console.log('button press');
+				contractForm['addressName'] = document.getElementById('addressName');
+
+				// Find out if it is a contract name or FLO address 
+				console.log(contractForm['addressName'].value);
+
+				if (contractForm['addressName'].value.slice(0,1) == 'F' && contractForm['addressName'].value.length == 34){
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getparticipantdetails?floaddress=${contractForm["addressName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						console.log(data);
+						contractDetailColumn = document.getElementById('contract_column2');
+
+						// Check which type of address it is 
+						if (data['result']=='ok' && data['type']=='participant'){
+							for (i = 0; i < data['participatedContracts'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['participatedContracts'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['participatedContracts'][i]['contractAddress'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Token amount:'+ data['participatedContracts'][i]['tokenAmount'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['participatedContracts'][i]['transactionHash'] +'</h4><br>' ;
+								}
+						}
+						else if (data['result']=='ok' && data['type']=='contract'){
+							for (i = 0; i < data['contractInfo'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['contractInfo'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['contractInfo'][i]['contractAddress'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Type:'+ data['contractInfo'][i]['contractType'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['contractInfo'][i]['expiryTime'] +'</h4><br>' ;
+								}														
+						}
+						else if (data['result'] == 'error'){
+							alert("error");
+						}
+
+						//contractText = document.getElementById('contractText');
+						//contractText.innerHTML = data['contractInfo']['contractName']+"<br>"+data['contractInfo']['tokenAmountDeposited'].toFixed(4)+" "+data['contractInfo']['tokenIdentification']+" deposited<br>"+data['contractInfo']['numberOfParticipants']+" participants"+"<br>conditions -&gt; "+data['contractInfo']['userChoice'][0]+"<br>"+data['contractInfo']['userChoice'][1];
+					});
+				}
+				else{
+					// Entered data is contract name
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist?contractName=${contractForm["addressName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						console.log(data);
+						contractDetailColumn = document.getElementById('contract_column2');
+						if (data['smartContracts'].length == 1){
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['smartContracts'][0]['contractName'] +'</h4>' ;
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['smartContracts'][0]['contractAddress'] +'</h4>' ;
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Status:'+ data['smartContracts'][0]['status'] +'</h4>' ;
+							if (data['smartContracts'][0]['expiryDate']){
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['smartContracts'][0]['expiryDate'] +'</h4><br>' ;														
+								}
+							}
+						else if (data['smartContracts'].length > 1){
+							for (i = 0; i < data['smartContracts'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['smartContracts'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['smartContracts'][i]['contractAddress'] +'</h4>' ;
+								}										
+						}
+					});
+				}
+        	});
+
+
+			const tokenForm = {
+				tokenName: document.getElementById('tokenName'),
+				submit: document.getElementById('tokenName_submit')
+        	};
+
+			tokenForm.submit.addEventListener('click', () => {
+				console.log('button press');
+				tokenForm['tokenName'] = document.getElementById('tokenName');
+
+				// Find out if it is a contract name or FLO address 
+				console.log(tokenForm['tokenName'].value);
+
+				if (tokenForm['tokenName'].value.slice(0,1) == 'F' && tokenForm['tokenName'].value.length == 34){
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/gettokeninfo?floaddress=${tokenForm["tokenName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						console.log(data);
+						contractDetailColumn = document.getElementById('contract_column2');
+
+						// Check which type of address it is 
+						if (data['result']=='ok' && data['type']=='participant'){
+							for (i = 0; i < data['participatedContracts'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['participatedContracts'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['participatedContracts'][i]['contractAddress'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Token amount:'+ data['participatedContracts'][i]['tokenAmount'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['participatedContracts'][i]['transactionHash'] +'</h4><br>' ;
+								}
+						}
+						else if (data['result']=='ok' && data['type']=='contract'){
+							for (i = 0; i < data['contractInfo'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['contractInfo'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['contractInfo'][i]['contractAddress'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Type:'+ data['contractInfo'][i]['contractType'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['contractInfo'][i]['expiryTime'] +'</h4><br>' ;
+								}														
+						}
+						else if (data['result'] == 'error'){
+							alert("error");
+						}
+
+						//contractText = document.getElementById('contractText');
+						//contractText.innerHTML = data['contractInfo']['contractName']+"<br>"+data['contractInfo']['tokenAmountDeposited'].toFixed(4)+" "+data['contractInfo']['tokenIdentification']+" deposited<br>"+data['contractInfo']['numberOfParticipants']+" participants"+"<br>conditions -&gt; "+data['contractInfo']['userChoice'][0]+"<br>"+data['contractInfo']['userChoice'][1];
+					});
+				}
+				else{
+					// Entered data is contract name
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/gettokeninfo?token=${tokenForm["tokenName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						console.log(data);
+						tokenDetailColumn = document.getElementById('token_column2');
+			
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Token name: '+ data['token'] +'</h4>' ;
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Incorp address: '+ data['incorporationAddress'] +'</h4>' ;
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Active addresses:'+ data['activeAddress_no'] +'</h4>' ;
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['transactionHash'] +'</h4>' ;
+						if (data['smartContracts'][0]['expiryDate']){
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['smartContracts'][0]['expiryDate'] +'</h4><br>' ;														
+							}
+			
+					});
+				}
+        	});
+
+		</script>
+
+		<script>
+			contractText1 = document.getElementById("contractText");
+			contractText1.addEventListener("click", function(){ console.log('Hello'); });
+		</script>
+		<script>
+			var topSmartContract = {};
+			topSmartContract = getTopSmartContract();
+			getSmartContractInfo(topSmartContract.name,topSmartContract.floAddress);
+			
+
+			function getTopSmartContract(){
+				var topSmartContract = {};
+				topSmartContract.name = "india-elections-2019";
+				topSmartContract.floAddress = "F7osBpjDDV1mSSnMNrLudEQQ3cwDJ2dPR1";
+				return topSmartContract;
+			}
+
+			function getSmartContractInfo(name,contractAddress){
+				fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractinfo?name=${name}&contractAddress=${contractAddress}`)
+				.then(response => response.json())
+				.then((data) => {
+					showSmartContractInfo(data);
+				});
+			}
+
+			function showSmartContractInfo(data){
+					contractText = document.getElementById('contractText');
+					contractText.innerHTML = data['contractInfo']['contractName']+"<br>"+data['contractInfo']['tokenAmountDeposited'].toFixed(4)+" "+data['contractInfo']['tokenIdentification']+" deposited<br>"+data['contractInfo']['numberOfParticipants']+" participants"+"<br>conditions -&gt; "+data['contractInfo']['userChoice'][0]+"<br>"+data['contractInfo']['userChoice'][1];
+
+			}
+
+			function getsmartContractList(){
+				fetch('https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist')
+				.then(response => response.json())
+				.then((data) => {
+					contract_column1 = document.getElementById('contract_column1');
+					for (var i = 0; i < data['smartContracts'].length; i++) { 
+						var contractName = data['smartContracts'][i]['contractName'];
+						contract_column1.innerHTML = contract_column1.innerHTML + '<h4 class="column__text">'+ contractName +'</h4>'
+						console.log(data['smartContracts'])					
+					}
+				});
+		}
+
+			function getTokenList(){
+			fetch('https://ranchimallflo.duckdns.org/api/v1.0/gettokenlist')
+			.then(response => response.json())
+			.then((data) => {
+				token_column1 = document.getElementById('token_column1');
+				for (var i = 0; i < data['tokens'].length; i++) { 
+					token_column1.innerHTML = token_column1.innerHTML + '<h4 class="column__text">'+ data['tokens'][i] +'</h4>'
+					console.log(data['tokens'])					
+				}
+			});
+			}
+
+			var es = new EventSource('https://ranchimallflo.duckdns.org/sse');
+			es.onmessage = function (event) {
+				console.log(event.data);
+			};
+		</script>
+	</body>
+</html>
