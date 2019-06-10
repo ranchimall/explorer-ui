@@ -360,10 +360,7 @@
 
 		</script>
 
-		<script>
-			contractText1 = document.getElementById("contractText");
-			contractText1.addEventListener("click", function(){ console.log('Hello'); });
-		</script>
+
 		<script>
 			var topSmartContract = {};
 			topSmartContract = getTopSmartContract();
@@ -428,10 +425,11 @@
 					var token_column1 = document.getElementById('token_column1');
 					for (var i = 0; i < data['tokens'].length; i++) { 
 					token_column1.innerHTML = token_column1.innerHTML + '<h4 class="column__text" id="token_'+data['tokens'][i]+'">'+ data['tokens'][i] +'</h4>';
-					document.getElementById('token_'+data['tokens'][i]).addEventListener("click",function(){alert("Hello")});
-					//console.log(data['tokens'])					
-				}
+					}
 
+					for (var i = 0; i < data['tokens'].length; i++) { 
+					document.getElementById('token_'+data['tokens'][i]).addEventListener("click",function(){alert("Hello Rohit")});
+				}
 			}
 			
 			var es = new EventSource('https://ranchimallflo.duckdns.org/sse');
