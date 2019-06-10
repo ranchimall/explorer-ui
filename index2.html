@@ -367,8 +367,16 @@
 		<script>
 			var topSmartContract = {};
 			topSmartContract = getTopSmartContract();
+			
+			//Show Top Contract in Home Page
 			getSmartContractInfo(topSmartContract.name,topSmartContract.floAddress);
 			
+			//Show Active Contracts in "Track Contracts" section
+			getSmartContractList();
+
+			//Show Active Tokens in "Track Tokens" section
+			getTokenList();
+
 
 			function getTopSmartContract(){
 				var topSmartContract = {};
@@ -391,31 +399,41 @@
 
 			}
 
-			function getsmartContractList(){
+			function getSmartContractList(){
 				fetch('https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist')
 				.then(response => response.json())
 				.then((data) => {
-					contract_column1 = document.getElementById('contract_column1');
+					showSmartContractList(data);
+				});
+		}
+
+			function showSmartContractList(data){
+				contract_column1 = document.getElementById('contract_column1');
 					for (var i = 0; i < data['smartContracts'].length; i++) { 
 						var contractName = data['smartContracts'][i]['contractName'];
 						contract_column1.innerHTML = contract_column1.innerHTML + '<h4 class="column__text">'+ contractName +'</h4>'
-						console.log(data['smartContracts'])					
+						//console.log(data['smartContracts'])					
 					}
-				});
-		}
+			}
 
 			function getTokenList(){
 			fetch('https://ranchimallflo.duckdns.org/api/v1.0/gettokenlist')
 			.then(response => response.json())
 			.then((data) => {
-				token_column1 = document.getElementById('token_column1');
-				for (var i = 0; i < data['tokens'].length; i++) { 
-					token_column1.innerHTML = token_column1.innerHTML + '<h4 class="column__text">'+ data['tokens'][i] +'</h4>'
-					console.log(data['tokens'])					
-				}
+				showTokenList(data);	
 			});
 			}
 
+			function showTokenList(data){
+					var token_column1 = document.getElementById('token_column1');
+					for (var i = 0; i < data['tokens'].length; i++) { 
+					token_column1.innerHTML = token_column1.innerHTML + '<h4 class="column__text" id="token_'+data['tokens'][i]+'">'+ data['tokens'][i] +'</h4>';
+					document.getElementById('token_'+data['tokens'][i]).addEventListener("click",function(){alert("Hello")});
+					//console.log(data['tokens'])					
+				}
+
+			}
+			
 			var es = new EventSource('https://ranchimallflo.duckdns.org/sse');
 			es.onmessage = function (event) {
 				console.log(event.data);
