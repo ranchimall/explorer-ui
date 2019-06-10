@@ -138,8 +138,10 @@
 		}
 		this.isAnimating = true;
 
+
 		// Update current value (index of the current tab).
 		this.current = this.DOM.tabs.indexOf(tab);
+
 
 		var bounds = tab.getBoundingClientRect(),
 			currentDimensions = { left: bounds.left, top: bounds.top, width: bounds.width, height: bounds.height },
@@ -302,7 +304,7 @@
 
 		this.DOM.el.classList.remove('tabsnav--hidden');
 		
-		// Animate bars.
+		// Animate bars
 		anime.remove(this.DOM.bars);
 		var animeBars = {
 			targets: this.DOM.bars,
@@ -343,6 +345,8 @@
 		var self = this;
 
 		this.isVisible = false;
+
+		console.log(this.DOM);
 
 		this.DOM.bars.forEach(function(bar) {
 			// Set transform origin.
