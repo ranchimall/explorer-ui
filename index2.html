@@ -212,19 +212,146 @@
 				submit: document.getElementById('addressName_submit')
         	};
 
-			contractForm.submit.addEventListener('click', () => {
-				
+        				var tokenForm = {
+				tokenName: document.getElementById('tokenName'),
+				submit: document.getElementById('tokenName_submit')
+        	};
+
+
+			contractForm.submit.addEventListener('click', () => { parseContractFormData() });
+
+			tokenForm.submit.addEventListener('click', () => { parseTokenFormData() });
+
+		</script>
+
+
+		<script>
+			var topSmartContract = {};
+			topSmartContract = getTopSmartContract();
+			
+			//Show Top Contract in Home Page
+			getSmartContractInfo(topSmartContract.name,topSmartContract.floAddress);
+			
+			//Show Active Contracts in "Track Contracts" section
+			getSmartContractList();
+
+			//Show Active Tokens in "Track Tokens" section
+			getTokenList();
+
+			function parseTokenFormData(){
+								// Find out if it is a contract name or FLO address 
+				//console.log(tokenForm['tokenName'].value);
+
 				console.log('button press');
+				tokenForm['tokenName'] = document.getElementById('tokenName');
+
+
+				if (tokenForm['tokenName'].value.slice(0,1) == 'F' && tokenForm['tokenName'].value.length == 34){
+					fetch(`http://localhost:5010/org/api/v1.0/gettokeninfo?floaddress=${tokenForm["tokenName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						
+						
+						showTokenAddressInfo(data);
+						
+					});
+				}
+				else{
+					// Entered data is contract name
+					fetch(`http://localhost:5010/api/v1.0/gettokeninfo?token=${tokenForm["tokenName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						
+						showTokenInfo(data);
+					});
+				}
+			}
+
+			function parseContractFormData(){
+					console.log('button press');
 				contractForm['addressName'] = document.getElementById('addressName');
 
 				// Find out if it is a contract name or FLO address 
 				console.log(contractForm['addressName'].value);
 
 				if (contractForm['addressName'].value.slice(0,1) == 'F' && contractForm['addressName'].value.length == 34){
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getparticipantdetails?floaddress=${contractForm["addressName"].value}`)
+					fetch(`http://localhost:5010/api/v1.0/getparticipantdetails?floaddress=${contractForm["addressName"].value}`)
 					.then(response => response.json())
 					.then((data) => {
-						//console.log(data);
+						
+						showContractParticipantDetails(data);
+					});
+				}
+				else{
+					// Entered data is contract name
+					fetch(`http://localhost:5010/api/v1.0/getsmartContractlist?contractName=${contractForm["addressName"].value}`)
+					.then(response => response.json())
+					.then((data) => {
+						showContractParticipantDetails(data);
+					});
+				}
+
+			}
+
+			function showTokenInfo(data){
+				//console.log(data);
+						tokenDetailColumn = document.getElementById('token_column2');
+			
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Token name: '+ data['token'] +'</h4>' ;
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Incorp address: '+ data['incorporationAddress'] +'</h4>' ;
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Active addresses:'+ data['activeAddress_no'] +'</h4>' ;
+						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['transactionHash'] +'</h4>' ;
+						if (data['smartContracts'][0]['expiryDate']){
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['smartContracts'][0]['expiryDate'] +'</h4><br>' ;														
+							}
+
+			}
+			
+			function showTokenAddressInfo(data){
+				contractDetailColumn = document.getElementById('contract_column2');
+
+						// Check which type of address it is 
+						if (data['result']=='ok' && data['type']=='participant'){
+							for (i = 0; i < data['participatedContracts'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['participatedContracts'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['participatedContracts'][i]['contractAddress'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Token amount:'+ data['participatedContracts'][i]['tokenAmount'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['participatedContracts'][i]['transactionHash'] +'</h4><br>' ;
+								}
+						}
+						else if (data['result']=='ok' && data['type']=='contract'){
+							for (i = 0; i < data['contractInfo'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['contractInfo'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['contractInfo'][i]['contractAddress'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Type:'+ data['contractInfo'][i]['contractType'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['contractInfo'][i]['expiryTime'] +'</h4><br>' ;
+								}														
+						}
+						else if (data['result'] == 'error'){
+							alert("error");
+						}
+
+			}
+
+			function showSmartContractList1(data){
+						contractDetailColumn = document.getElementById('contract_column2');
+						if (data['smartContracts'].length == 1){
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['smartContracts'][0]['contractName'] +'</h4>' ;
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['smartContracts'][0]['contractAddress'] +'</h4>' ;
+							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Status:'+ data['smartContracts'][0]['status'] +'</h4>' ;
+							if (data['smartContracts'][0]['expiryDate']){
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['smartContracts'][0]['expiryDate'] +'</h4><br>' ;														
+								}
+							}
+						else if (data['smartContracts'].length > 1){
+							for (i = 0; i < data['smartContracts'].length; i++) {
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['smartContracts'][i]['contractName'] +'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['smartContracts'][i]['contractAddress'] +'</h4>' ;
+								}										
+						}
+			}
+
+			function showContractParticipantDetails(data){
 						contractDetailColumn = document.getElementById('data_output');
 						contractDetailColumn.innerHTML = "";
 						// Check which type of address it is 
@@ -249,116 +376,8 @@
 							alert("error");
 						}
 
-						//contractText = document.getElementById('contractText');
-						//contractText.innerHTML = data['contractInfo']['contractName']+"<br>"+data['contractInfo']['tokenAmountDeposited'].toFixed(4)+" "+data['contractInfo']['tokenIdentification']+" deposited<br>"+data['contractInfo']['numberOfParticipants']+" participants"+"<br>conditions -&gt; "+data['contractInfo']['userChoice'][0]+"<br>"+data['contractInfo']['userChoice'][1];
-					});
-				}
-				else{
-					// Entered data is contract name
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist?contractName=${contractForm["addressName"].value}`)
-					.then(response => response.json())
-					.then((data) => {
-						//console.log(data);
-						contractDetailColumn = document.getElementById('contract_column2');
-						if (data['smartContracts'].length == 1){
-							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['smartContracts'][0]['contractName'] +'</h4>' ;
-							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['smartContracts'][0]['contractAddress'] +'</h4>' ;
-							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Status:'+ data['smartContracts'][0]['status'] +'</h4>' ;
-							if (data['smartContracts'][0]['expiryDate']){
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['smartContracts'][0]['expiryDate'] +'</h4><br>' ;														
-								}
-							}
-						else if (data['smartContracts'].length > 1){
-							for (i = 0; i < data['smartContracts'].length; i++) {
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['smartContracts'][i]['contractName'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['smartContracts'][i]['contractAddress'] +'</h4>' ;
-								}										
-						}
-					});
-				}
-        	});
 
-
-			var tokenForm = {
-				tokenName: document.getElementById('tokenName'),
-				submit: document.getElementById('tokenName_submit')
-        	};
-
-			tokenForm.submit.addEventListener('click', () => {
-				console.log('button press');
-				tokenForm['tokenName'] = document.getElementById('tokenName');
-
-				// Find out if it is a contract name or FLO address 
-				//console.log(tokenForm['tokenName'].value);
-
-				if (tokenForm['tokenName'].value.slice(0,1) == 'F' && tokenForm['tokenName'].value.length == 34){
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/gettokeninfo?floaddress=${tokenForm["tokenName"].value}`)
-					.then(response => response.json())
-					.then((data) => {
-						//console.log(data);
-						contractDetailColumn = document.getElementById('contract_column2');
-
-						// Check which type of address it is 
-						if (data['result']=='ok' && data['type']=='participant'){
-							for (i = 0; i < data['participatedContracts'].length; i++) {
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['participatedContracts'][i]['contractName'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['participatedContracts'][i]['contractAddress'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Token amount:'+ data['participatedContracts'][i]['tokenAmount'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['participatedContracts'][i]['transactionHash'] +'</h4><br>' ;
-								}
-						}
-						else if (data['result']=='ok' && data['type']=='contract'){
-							for (i = 0; i < data['contractInfo'].length; i++) {
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['contractInfo'][i]['contractName'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['contractInfo'][i]['contractAddress'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Type:'+ data['contractInfo'][i]['contractType'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['contractInfo'][i]['expiryTime'] +'</h4><br>' ;
-								}														
-						}
-						else if (data['result'] == 'error'){
-							alert("error");
-						}
-
-						//contractText = document.getElementById('contractText');
-						//contractText.innerHTML = data['contractInfo']['contractName']+"<br>"+data['contractInfo']['tokenAmountDeposited'].toFixed(4)+" "+data['contractInfo']['tokenIdentification']+" deposited<br>"+data['contractInfo']['numberOfParticipants']+" participants"+"<br>conditions -&gt; "+data['contractInfo']['userChoice'][0]+"<br>"+data['contractInfo']['userChoice'][1];
-					});
-				}
-				else{
-					// Entered data is contract name
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/gettokeninfo?token=${tokenForm["tokenName"].value}`)
-					.then(response => response.json())
-					.then((data) => {
-						//console.log(data);
-						tokenDetailColumn = document.getElementById('token_column2');
-			
-						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Token name: '+ data['token'] +'</h4>' ;
-						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Incorp address: '+ data['incorporationAddress'] +'</h4>' ;
-						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Active addresses:'+ data['activeAddress_no'] +'</h4>' ;
-						tokenDetailColumn.innerHTML = tokenDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['transactionHash'] +'</h4>' ;
-						if (data['smartContracts'][0]['expiryDate']){
-							contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Expiry time:'+ data['smartContracts'][0]['expiryDate'] +'</h4><br>' ;														
-							}
-			
-					});
-				}
-        	});
-
-		</script>
-
-
-		<script>
-			var topSmartContract = {};
-			topSmartContract = getTopSmartContract();
-			
-			//Show Top Contract in Home Page
-			getSmartContractInfo(topSmartContract.name,topSmartContract.floAddress);
-			
-			//Show Active Contracts in "Track Contracts" section
-			getSmartContractList();
-
-			//Show Active Tokens in "Track Tokens" section
-			getTokenList();
-
+			}
 
 			function getTopSmartContract(){
 				var topSmartContract = {};
@@ -368,7 +387,7 @@
 			}
 
 			function getSmartContractInfo(name,contractAddress){
-				fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractinfo?name=${name}&contractAddress=${contractAddress}`)
+				fetch(`http://localhost:5010/api/v1.0/getsmartContractinfo?name=${name}&contractAddress=${contractAddress}`)
 				.then(response => response.json())
 				.then((data) => {
 					showSmartContractInfo(data);
@@ -382,7 +401,7 @@
 			}
 
 			function getSmartContractList(){
-				fetch('https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist')
+				fetch('http://localhost:5010/api/v1.0/getsmartContractlist')
 				.then(response => response.json())
 				.then((data) => {
 					showSmartContractList(data);
@@ -399,7 +418,7 @@
 			}
 
 			function getTokenList(){
-			fetch('https://ranchimallflo.duckdns.org/api/v1.0/gettokenlist')
+			fetch('http://localhost:5010/api/v1.0/gettokenlist')
 			.then(response => response.json())
 			.then((data) => {
 				showTokenList(data);	
