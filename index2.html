@@ -181,13 +181,19 @@
 				<div class="tabscontent__item">
 					<!-- Smart Contract Tracking -->
 					<div id='contract_column1' class="column">
-						<h3 class="column__title">Top Contracts</h3>
+						<h3 class="column__title">Active Contracts</h3>
 						<!--<h4 class="column__text">energetic</h4>
 						<h4 class="column__text">hematocrit</h4>
 						<h4 class="column__text">gaussian</h4>
 						<h4 class="column__text">amphiphilic</h4>
 						<h4 class="column__text">neutrophil</h4>-->
 					</div>
+
+					<div id='data_display' class="column">
+						<h4 class="column__text">Display Box</h4>
+					</div>
+
+
 					<div id='contract_column2' class="column">
 						<h3 class="column__title">Enter Address/Contract name</h3>
 						<div id="contract_form">
@@ -253,7 +259,7 @@
 
 			}
 			
-			//Show Active Contracts in "Track Contracts" section
+			//Show Active Contracts in "Contracts" section
 			getSmartContractList();
 
 			function getSmartContractList(){
@@ -268,13 +274,39 @@
 				contract_column1 = document.getElementById('contract_column1');
 					for (var i = 0; i < data['smartContracts'].length; i++) { 
 						var contractName = data['smartContracts'][i]['contractName'];
-						contract_column1.innerHTML = contract_column1.innerHTML + '<h4 class="column__text">'+ contractName +'</h4>'
-						//console.log(data['smartContracts'])					
+						var contractId = "contract_"+i;
+						var contractAddress = data['smartContracts'][i]['contractAddress'];
+						contract_column1.innerHTML = contract_column1.innerHTML + '<h4 class="column__text" data-contractaddress="'+contractAddress+'" id="'+contractId+'">'+ contractName +'</h4>'
+										
 					}
+
+
+					for (var i = 0; i < data['smartContracts'].length; i++) { 
+						
+						document.getElementById("contract_"+i).addEventListener("click",showMeParticipants,false);
+				
+					}
+			}
+
+
+			function showMeParticipants(y){
+				var name=y.target.innerHTML;
+				var address = y.target.dataset.contractaddress;
+				getAllParticipants(name,address);
+
 			}
 
 			//Show Active Tokens in "Track Tokens" section
 			getTokenList();
+
+			function getAllParticipants(name,address){
+			fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractparticipants?name=${name}&contractAddress=${address}`)
+			.then(response => response.json())
+			.then((data) => {
+				console.log(data);	
+			});
+			}
+
 
 			function getTokenList(){
 			fetch('https://ranchimallflo.duckdns.org/api/v1.0/gettokenlist')
