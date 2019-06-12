@@ -73,7 +73,40 @@
 		.dispBalTable {
 		 border: 1px solid #ffffff;
 		}
-		
+
+
+		table {
+	    font-family: lucida sans unicode,lucida grande,Sans-Serif;
+	    font-size: 12px;
+	    width: 480px;
+	    text-align: left;
+	    border-collapse: collapse;
+	    margin: 30px 30px 30px 15px;
+		}
+
+		th {
+		    font-weight: 400;
+		    font-size: 14px;
+		    border-bottom: 2px solid #6678b1;
+		    border-right: 30px solid #fff;
+		    border-left: 30px solid #fff;
+		    color: white;
+		    padding: 8px 2px;
+		}
+
+
+
+		tr {
+		    border-bottom: 1px solid #ddd;
+		}
+
+		td {
+		    border-right: 30px solid #fff;
+		    border-left: 30px solid #fff;
+		    color: #669;
+		    padding: 12px 2px 0;
+		}
+			
 		</style>
 
 		<script>document.documentElement.className = 'js';</script>
@@ -190,7 +223,7 @@
 					</div>
 
 					<div id='data_display' class="column">
-						<h4 class="column__text">Display Box</h4>
+						<h4 class="column__title">Display Box</h4>
 					</div>
 
 
@@ -292,7 +325,6 @@
 			function showMeParticipants(y){
 				var name=y.target.innerHTML;
 				var address = y.target.dataset.contractaddress;
-				console.log(name);console.log(address);
 				getAllParticipants(name,address);
 
 			}
@@ -301,13 +333,39 @@
 			getTokenList();
 
 			function getAllParticipants(contractName,contractAddress){
-			fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractParticipants?contractName=${contractName}&contractAddress=${contractAddress}`)
-			.then(response => response.json())
-			.then((data) => {
-				console.log(data);	
-			});
+				fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractParticipants?contractName=${contractName}&contractAddress=${contractAddress}`)
+				.then(response => response.json())
+				.then((data) => {
+					window.data = data;
+					//console.log(data);	
+					showAllParticipants(data.participantInfo);
+				});
 			}
 
+			function showAllParticipants(data){
+
+				console.log(data);
+
+				var rows = data;
+
+				 var html = '<table>';
+				 html += '<tr>';
+				 for( var j in rows[1] ) {
+				  html += '<th>' + j + '</th>';
+				 }
+				 html += '</tr>';
+				 for( var i = 1; i < Object.keys(rows).length; i++) {
+				  html += '<tr>';
+				  for( var j in rows[i] ) {
+				    html += '<td>' + rows[i][j] + '</td>';
+				  }
+				  html += '</tr>';
+				 }
+				 html += '</table>';
+
+				 console.log(html);
+				 document.getElementById("data_display").innerHTML = html;
+			}
 
 			function getTokenList(){
 			fetch('https://ranchimallflo.duckdns.org/api/v1.0/getTokenList')
