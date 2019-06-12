@@ -292,6 +292,7 @@
 			function showMeParticipants(y){
 				var name=y.target.innerHTML;
 				var address = y.target.dataset.contractaddress;
+				console.log(name);console.log(address);
 				getAllParticipants(name,address);
 
 			}
@@ -300,7 +301,7 @@
 			getTokenList();
 
 			function getAllParticipants(contractName,contractAddress){
-			fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractParticipants?name=${contractName}&contractAddress=${contractAddress}`)
+			fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractParticipants?contractName=${contractName}&contractAddress=${contractAddress}`)
 			.then(response => response.json())
 			.then((data) => {
 				console.log(data);	
