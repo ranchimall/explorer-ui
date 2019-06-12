@@ -245,8 +245,8 @@
 			//Show Top Contract in Home Page
 			getSmartContractInfo(topSmartContract.name,topSmartContract.floAddress);
 
-			function getSmartContractInfo(name,contractAddress){
-				fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractinfo?name=${name}&contractAddress=${contractAddress}`)
+			function getSmartContractInfo(contractName,contractAddress){
+				fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractInfo?contractName=${contractName}&contractAddress=${contractAddress}`)
 				.then(response => response.json())
 				.then((data) => {
 					showSmartContractInfo(data);
@@ -263,7 +263,7 @@
 			getSmartContractList();
 
 			function getSmartContractList(){
-				fetch('https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist')
+				fetch('https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractList')
 				.then(response => response.json())
 				.then((data) => {
 					showSmartContractList(data);
@@ -299,8 +299,8 @@
 			//Show Active Tokens in "Track Tokens" section
 			getTokenList();
 
-			function getAllParticipants(name,address){
-			fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractparticipants?name=${name}&contractAddress=${address}`)
+			function getAllParticipants(contractName,contractAddress){
+			fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractParticipants?name=${contractName}&contractAddress=${contractAddress}`)
 			.then(response => response.json())
 			.then((data) => {
 				console.log(data);	
@@ -309,7 +309,7 @@
 
 
 			function getTokenList(){
-			fetch('https://ranchimallflo.duckdns.org/api/v1.0/gettokenlist')
+			fetch('https://ranchimallflo.duckdns.org/api/v1.0/getTokenList')
 			.then(response => response.json())
 			.then((data) => {
 				showTokenList(data);	
@@ -337,17 +337,15 @@
 				console.log(contractForm['addressName'].value);
 
 				if (contractForm['addressName'].value.slice(0,1) == 'F' && contractForm['addressName'].value.length == 34){
-					//fetch('https://ranchimallflo.duckdns.org/api/v1.0/getparticipantdetails?floaddress='+contractForm["addressName"].value)
-					fetch('https://ranchimallflo.duckdns.org/api/v1.0/getparticipantdetails?floaddress='+contractForm['addressName'].value )
+					fetch('https://ranchimallflo.duckdns.org/api/v1.0/getParticipantDetails?floAddress='+contractForm['addressName'].value )
 					.then(response => response.json())
 					.then((data) => {
-						
 						showContractParticipantDetails(data);
 					});
 				}
 				else{
 					// Entered data is contract name
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getsmartContractlist?contractName=${contractForm["addressName"].value}`)
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getSmartContractList?contractName=${contractForm["addressName"].value}`)
 					.then(response => response.json())
 					.then((data) => {
 						showContractNameDetails(data);
@@ -367,18 +365,17 @@
 
 
 				if (tokenForm['tokenName'].value.slice(0,1) == 'F' && tokenForm['tokenName'].value.length == 34){
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/gettokeninfo?floaddress=${tokenForm["tokenName"].value}`)
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getTokenInfo?floAddress=${tokenForm["tokenName"].value}`)
 					.then(response => response.json())
 					.then((data) => {
-						
-						
+
 						showTokenAddressInfo(data);
 						
 					});
 				}
 				else{
 					// Entered data is contract name
-					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/gettokeninfo?token=${tokenForm["tokenName"].value}`)
+					fetch(`https://ranchimallflo.duckdns.org/api/v1.0/getTokenInfo?token=${tokenForm["tokenName"].value}`)
 					.then(response => response.json())
 					.then((data) => {
 						
@@ -455,7 +452,7 @@
 							for (i = 0; i < data['participatedContracts'].length; i++) {
 								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract name: '+ data['participatedContracts'][i]['contractName'] +'</h4>' ;
 								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Contract address: '+ data['participatedContracts'][i]['contractAddress'] +'</h4>' ;
-								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Participant address: '+ data['address']+'</h4>' ;
+								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Participant address: '+ data['floAddress']+'</h4>' ;
 								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Token amount:'+ data['participatedContracts'][i]['tokenAmount'] +'</h4>' ;
 								contractDetailColumn.innerHTML = contractDetailColumn.innerHTML + '<h4 class="column__text">Transaction hash:'+ data['participatedContracts'][i]['transactionHash'] +'</h4><br>' ;
 								}
