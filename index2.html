@@ -423,7 +423,7 @@
 				document.getElementById("contract_data_display").style.opacity = 1;
 			
 				var rows = data;
-				var html = '<div id="closeMe"><i class="fas fa-times fa-2x" style="color:red;"></i></div>';
+				var html = '<div id="closeMe"><i class="fas fa-times fa-lg" style="color:red;"></i></div>';
 				 html += '<table>';
 				 html += '<tr>';
 				 for( var j in rows[1] ) {
@@ -442,6 +442,7 @@
 				 console.log(html);
 				 document.getElementById("contract_data_display").innerHTML = html;
 				 document.getElementById("contract_data_display").style.transform = "translate(-400px,15px)";
+				 document.getElementById("closeMe").style.transform = "translate(10px,50px)";
 
 				 var x = document.getElementsByClassName("hideMe");
 				 for (var i=0;i<x.length;i++){
