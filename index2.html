@@ -420,7 +420,7 @@
 
 			function showAllParticipants(data){
 
-		
+				document.getElementById("contract_data_display").style.opacity = 1;
 			
 				var rows = data;
 				var html = '<div id="closeMe"><i class="fa fa-times" style="font-size:60px;color:red;"></i></div>';
@@ -447,9 +447,19 @@
 					    x[i].style.opacity=0;
 				 }
 
+				 document.getElementById("closeMe").addEventListener("click",closeContractParticipantTable);
+
 			}
 
-			
+			function closeContractParticipantTable(){
+				
+				document.getElementById("contract_data_display").style.opacity = 0;
+
+				var x = document.getElementsByClassName("hideMe");
+				 for (var i=0;i<x.length;i++){
+					    x[i].style.opacity=1;
+				 }				
+			}			
 
 			
 
