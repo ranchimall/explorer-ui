@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">      
+ <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>	
+
+
+
+<style>
+#first {
+	background: rgb(84, 110, 153,0.9);
+	width: 100px;
+	height: 500px;
+	border-radius: 0px 10px 10px 0px;
+	z-index: 30;
+	position: absolute;
+	left:0px;
+	top:0px;
+	transition: all 2s;
+
+}
+
+#second {
+	background: rgb(229, 57, 209,0.9);
+	width: 150px;
+	height: 500px;
+	border-radius: 0px 10px 10px 0px;
+	z-index: 20;
+	position: absolute;
+	left:0px;
+	top:0px;
+	transition: all 2s;
+}
+
+#third {
+	background: rgb(116, 178, 98,0.9);
+	width: 200px;
+	height: 500px;
+	border-radius: 0px 10px 10px 0px;
+	z-index: 10;
+	position: absolute;
+	left:0px;
+	top:0px;
+	transition: all 2s;
+}
+
+
+</style>
+
+<body>
+
+<div id="first"><div style="transform: rotate(-90deg);">Vivek</div></div>
+<div id="second"></div>
+<div id="third"></div>
+
+<script>
+document.getElementById("first").style.height=window.innerHeight;
+document.getElementById("second").style.height=window.innerHeight;
+document.getElementById("third").style.height=window.innerHeight;
+
+function attachEvent(id){
+var originalWidth = getComputedStyle(document.getElementById(id)).getPropertyValue("width");
+document.getElementById(id).addEventListener("click",expand.bind(document.getElementById(id),originalWidth,false));
+}
+
+attachEvent("first");
+attachEvent("second");
+attachEvent("third");
+
+
+function expand(passedWidth){
+	
+	var computedWidth = getComputedStyle(this).getPropertyValue("width");
+	var x = parseFloat(computedWidth.slice(0,-2))
+
+	if (x < 250) {
+		this.style.width = window.innerWidth ;
+	} 
+
+	else
+	{
+	//	y.target.style.width = y.originalTarget.style.width;
+	this.style.width = passedWidth;
+
+	}
+}
+
+
+</script>
+</body>
+</html>

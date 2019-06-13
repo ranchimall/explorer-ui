@@ -361,7 +361,7 @@
 
 			function showAllTokens(data){
 
-				console.log(data);
+				//console.log(data);
 
 				var rows = data;
 
@@ -380,7 +380,7 @@
 				}
 				html += '</table>';
 
-				console.log(html);
+				//console.log(html);
 				document.getElementById("token_data_display").innerHTML = html;
 				}
 
@@ -420,7 +420,7 @@
 				var rows = data;
 				
 				
-				var html = '<table><tr><td><div id="closeMe"><i class="fas fa-times fa-lg" style="color:red;"></i></div></td></tr>';
+				var html = '<table id="scrollMe"><tr><td><div id="closeMe"><i class="fas fa-times fa-lg" style="color:red;"></i></div></td></tr>';
 				
 				var screenWidth = window.innerWidth;
 				if(screenWidth>900){
@@ -434,10 +434,10 @@
 				 for( var i = 1; i < Object.keys(rows).length; i++) {
 				  html += '<tr>';
 				  for( var j in rows[i] ) {
-				    console.log(j);
+				    //console.log(j);
 				    html += '<td>' + rows[i][j] + '</td>';
 				  }
-				  html += '</tr>';
+				  html += '</tr><tr><td style="color:#426eb5;font-size:12px">Next Record</td><td><div><i class="fas fa-arrow-up fa-lg" style="color:red;"></i></div></td><td><div><i class="fas fa-arrow-down fa-lg" style="color:red;"></i></div></td></tr>';
 				 }
 				 html += '</table>';
 				 }
@@ -456,7 +456,7 @@
 				  	if (j !="transactionHash"){
 				    html += '<tr><td>' + rows[i][j] + '</td></tr>';}
 				  }
-				  html += '</tr><tr><td style="color:#426eb5;font-size:12px">Next Record</td></tr>';
+				  html += '</tr><tr><td style="color:#426eb5;font-size:12px">Next Record</td><td><div><i class="fas fa-arrow-up fa-lg" style="color:red;"></i></div></td><td><div><i class="fas fa-arrow-down fa-lg" style="color:red;"></i></div></td></tr>';
 				 }
 				 html += '</table>';
 				 }
@@ -471,8 +471,34 @@
 					    x[i].style.opacity=0;
 				 }
 
+				 
 				 document.getElementById("closeMe").addEventListener("click",closeContractParticipantTable);
 
+				  var x = document.getElementsByClassName("fa-arrow-up");
+				 for (var i=0;i<x.length;i++){
+					    x[i].addEventListener("click",moveTable.bind(x[i],"goDown"),false)
+				 }
+
+				  var x = document.getElementsByClassName("fa-arrow-down");
+				 for (var i=0;i<x.length;i++){
+					    x[i].addEventListener("click",moveTable.bind(x[i],"goUp"),false)
+				 }
+
+			}
+
+			var scrollCount = 1;
+
+
+			function moveTable(direction){
+				var verticalMovement;
+				if (direction = "goDown" )
+				{verticalMovement = (-1)*scrollCount*100;scrollCount++;}
+
+				if (direction = "goUp" )
+				{verticalMovement = scrollCount*100;scrollCount--;}
+
+				document.getElementById("scrollMe").style.transform = `translate(0px,${verticalMovement}px)`;
+				
 			}
 
 			function closeContractParticipantTable(){
@@ -489,11 +515,11 @@
 
 			// Parsing of contract form data
 			function parseContractFormData(){
-				console.log('button press');
+				//console.log('button press');
 				contractForm['addressName'] = document.getElementById('addressName');
 
 				// Find out if it is a contract name or FLO address 
-				console.log(contractForm['addressName'].value);
+				//console.log(contractForm['addressName'].value);
 
 				if (contractForm['addressName'].value.slice(0,1) == 'F' && contractForm['addressName'].value.length == 34){
 					fetch(`${apiLocation}/api/v1.0/getParticipantDetails?floAddress=${contractForm['addressName'].value}`)
@@ -560,7 +586,7 @@
 								// Find out if it is a contract name or FLO address 
 				//console.log(tokenForm['tokenName'].value);
 
-				console.log('button press');
+				//console.log('button press');
 				tokenForm['tokenName'] = document.getElementById('tokenName');
 
 

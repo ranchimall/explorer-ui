@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">      
+ <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>	
+
+
+
+<style>
+
+#expanded {
+	opacity: 0;
+	transition: all 1s;
+	background: #ffb3b3;
+	position:absolute;
+	top:20px;
+	left:20px;
+}
+
+</style>
+
+<body>
+<div id="base"><div id="base1"> Hello </div></div>
+<div id="expanded">
+	<div>This Opened</div>
+	
+
+	<div id="closeMe">
+
+	<i class="fa fa-times" style="font-size:60px;color:black;"></i>
+	</div>
+
+</div>
+
+<script>
+
+document.getElementById("base").addEventListener("click",openExpanded);
+document.getElementById("closeMe").addEventListener("click",closeExpanded);
+
+function openExpanded(){
+	
+/*	var current_color = getComputedStyle(x5).getPropertyValue("background-color");
+	x5.style.backgroundColor = "rgba(1,1,1,0.3)";
+	'rgba(1,1,1,0.3)'.replace(/[^,]+(?=\))/, '0.5')
+*/
+	document.getElementById("expanded").style.opacity=1;
+	//document.getElementById("base").style.backgroundColor=getComputedStyle(document.getElementById("base")).getPropertyValue("background-color").replace(/[^,]+(?=\))/, '0');
+		document.getElementById("base").style.color="rgba(0,0,0,0)"
+	
+
+	document.getElementById("expanded").style.width=innerWidth-200;
+	document.getElementById("expanded").style.height=innerHeight-200;
+}
+
+function closeExpanded(){
+	document.getElementById("expanded").style.opacity=0;
+	
+//	document.getElementById("base1").style.opacity=1;
+	document.getElementById("base1").style.color=getComputedStyle(document.getElementById("base1")).getPropertyValue("color").replace(/[^,]+(?=\))/, '1');
+//document.getElementById("base1").style.backgroundColor = "rgba(1,1,0,1)"
+
+}
+
+
+</script>
+</body>
+</html>
