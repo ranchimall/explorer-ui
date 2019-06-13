@@ -106,10 +106,13 @@
 		    color: #669;
 		    padding: 12px 2px 0;
 		}
+
+
 			
 		</style>
 
 		<script>document.documentElement.className = 'js';</script>
+		}
 	</head>
 	<body class="demo-2">
 		<svg class="hidden">
@@ -216,10 +219,10 @@
 						<h4 class="column__text">magnitude</h4>-->
 					</div>
 				</div>
-				<div class="tabscontent__item">
+				<div class="tabscontent__item" id="contractTab">
 					<!-- Smart Contract Tracking -->
-					<div id='contract_column1' class="column">
-						<h3 class="column__title">Active Contracts</h3>
+					<div id='contract_column1' class="column hideMe">
+						<h3 class="column__title" >Active Contracts</h3>
 						<!--<h4 class="column__text">energetic</h4>
 						<h4 class="column__text">hematocrit</h4>
 						<h4 class="column__text">gaussian</h4>
@@ -232,7 +235,7 @@
 					</div>
 
 
-					<div id='contract_column2' class="column">
+					<div id='contract_column2' class="column hideMe">
 						<h3 class="column__title">Enter Address/Contract name</h3>
 						<div id="contract_form">
 							<input type="text" id='addressName' name="addressName">
@@ -331,6 +334,8 @@
 						document.getElementById("contract_"+i).addEventListener("click",showMeParticipants,false);
 				
 					}
+
+					
 			}
 
 			function getTokenList(){
@@ -415,11 +420,11 @@
 
 			function showAllParticipants(data){
 
-				console.log(data);
-
+		
+			
 				var rows = data;
-
-				 var html = '<table>';
+				var html = '<div id="closeMe"><i class="fa fa-times" style="font-size:60px;color:red;"></i></div>';
+				 html += '<table>';
 				 html += '<tr>';
 				 for( var j in rows[1] ) {
 				  html += '<th>' + j + '</th>';
@@ -436,6 +441,12 @@
 
 				 console.log(html);
 				 document.getElementById("contract_data_display").innerHTML = html;
+
+				 var x = document.getElementsByClassName("hideMe");
+				 for (var i=0;i<x.length;i++){
+					    x[i].style.opacity=0;
+				 }
+
 			}
 
 			
