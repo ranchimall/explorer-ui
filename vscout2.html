@@ -1,0 +1,483 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">   
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head> 
+ 
+<!-- THIS IS A BEAUTIFUL SOLUTION -->
+<style>
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family: 'Titillium Web';-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+
+body {
+  margin: 0;
+  /*font-family: Nunito,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;*/
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.maincontainer{
+  display: flex; 
+  -webkit-box-orient: vertical; 
+  -webkit-box-direction: normal; 
+  flex-direction: column; 
+  min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    /* media query shiz */
+    max-width: 1140px;
+}
+
+.navbar{
+    background-color: #fff;
+    position: relative;
+    z-index: 100;    
+    padding: 8 16 8 16;
+
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    box-shadow: 0 0 30px 0 rgba(21,53,80,.12);
+
+    /* media query shiz 992*/
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.navbar_container{
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    /* media query shiz 1200*/
+    flex-wrap: nowrap;
+    max-width: 1140px;
+}
+
+.navbar_brand{
+    color: #fff;
+    margin-left: 0;
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar_container a {
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+.navbar_logo{
+    max-height: 28px;
+    width: auto;
+}
+
+.navbarmenu_search{
+    flex-grow: 1;
+    -webkit-box-align: center;
+    align-items: center;
+
+    /* media query shiz */
+    display: flex!important;
+    flex-basis: auto;
+}
+
+.searchform_container{
+
+    /* media query shiz 1200*/
+    height: 57px;
+    margin-bottom: -8px;
+    margin-top: -8px;
+
+    /* media query inherited shiz 992*/
+    display: flex!important;
+}
+
+.search_form{
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-align: center;
+    align-items: center;
+
+    /* media query shiz */
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+}
+
+.search_button{
+    border-radius: 2px;
+    border: none;
+    display: inline-block;
+    line-height: 1.2;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+    white-space: nowrap;
+
+    color: #20b760;
+    background-color: transparent;
+    background-image: none;
+
+    position: absolute;
+    width: 1px;
+    text-transform: none;
+
+    /* media query shiz*/
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+}
+
+.main{
+    flex-grow: 1;
+    background-color: #fbfafc;
+    padding-top: 3rem!important;
+    display: block;
+}
+
+.dashboard-banner-container{
+    background-image: linear-gradient(to bottom,#5c34a2,#673ab5);
+    background-color: #5c34a2;
+    box-shadow: 0 5px 40px -5px rgba(0,0,0,.25);
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    padding: 0;
+    position: relative;   
+    display: block; 
+}
+
+.dashboard-container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    /* media query shiz */
+    max-width: 1140px;
+}
+
+.dashboard-banner{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    z-index: 9;
+}
+
+.dashboard-banner-network-graph{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    padding: 15px 0 0;
+}
+
+.dashboard-banner-network-plain-container {
+    -webkit-box-align: center;
+    align-items: center;
+    align-self: flex-end;
+    background-color: #8258cd;
+    border-top-left-radius: 10px;
+    display: flex;
+    height: 205px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 0 0 0 30px;
+    max-width: 100%;
+    padding: 30px 0 30px 60px;
+    width: 750px;
+    position: relative;
+}
+
+.dashboard-banner-network-plain-container::after {
+    background-color: #8258cd;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 205px;
+    left: 0;
+    position: absolute;
+    width: 9999px;
+    z-index: -1;
+    box-shadow: 0 0 35px 0 rgba(0,0,0,.2);
+    border-top-left-radius: 10px;
+}
+
+.dashboard-banner-network-stats{
+    column-gap: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.dashboard-banner-network-stats-item{
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: calc(1rem + 4px);
+    padding-right: 1rem;
+    position: relative;
+}
+
+.dashboard-banner-network-stats-item::before{
+    background-color: #87e1a9;
+    border-radius: 2px;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 4px;
+}
+
+.dashboard-banner-network-stats-label {
+    color: #dcc8ff;
+    display: block;
+    white-space: nowrap;
+}
+
+.dashboard-banner-network-stats-value {
+    color: #fff;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 200;
+    white-space: nowrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 30px 0 rgba(202,199,226,.5);
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+.card-chain-blocks {
+    height: auto;
+}
+
+.card-body {
+    padding: 30px;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+}
+
+.card-chain-transactions {
+    height: auto;
+}
+
+.footer {
+    background: #3c226a;
+    color: #bda6e7;
+    font-size: 12px;
+    line-height: 1.67;
+    margin: 0;
+    padding: 40px 0;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.footer-logo-row {
+    margin-bottom: 30px;
+}
+
+.col-md-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.footer-column1{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    
+    /* media query shiz */
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.footer-info-text {
+    margin: 0 0 25px;
+    padding: 0 20px 0 0;
+}
+
+.footer-column1 p{
+    font-size: 13px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+</style>
+
+<body>
+  <div class="maincontainer">
+
+    <nav class="navbar">
+        <div class="navbar_container">  
+            <a href="vscout2.html">
+                <img class="navbar-logo" style="vertical-align:middle; border-style:none;" src="FLO_horizontal_text1.svg" alt="POA Core">
+            </a>
+            
+            <div class="navbarmenu_search">
+                <ul> </ul>
+                <div class="searchform_container">
+                    <form action="" class="search_form" method="get"> 
+                        <!-- <div class="input-group" title="Search by address, token symbol name, transaction hash, or block number">
+                        <div class="awesomplete"><input aria-describedby="search-icon" aria-label="Search" class="form-control me auto" data-test="search_input" id="q" name="q" placeholder="Search by address, token symbol name, transaction hash, or block number" type="text" autocomplete="off" aria-autocomplete="list"><ul hidden=""></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-relevant="additions"></span></div><script type="text/javascript">AwesompleteUtil.start('#q', {url: '/poa/core/token_autocomplete?q=', limit: 0}, {minChars: 2, data: function(rec, input) { return { label: (rec['contract_address_hash'] || '').replace('<p>', '<p >')+'<p>'+(rec['symbol'] || ''), value: rec['contract_address_hash']+'|'+(rec['symbol'] || '').replace('|', ' ') }; }, replace: function(data) { var text = data.value.substring(0, data.value.lastIndexOf('|')); this.input.value = text; }, filter: AwesompleteUtil.filterContains, item: AwesompleteUtil.itemMarkAll});</script> <div class="input-group-append">
+                        <button class="input-group-text" id="search-icon">
+                        <svg viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg" width="16" height="17">
+                        <path fill="#7DD79F" fill-rule="evenodd" d="M15.713 15.727a.982.982 0 0 1-1.388 0l-2.289-2.29C10.773 14.403 9.213 15 7.5 15A7.5 7.5 0 1 1 15 7.5c0 1.719-.602 3.284-1.575 4.55l2.288 2.288a.983.983 0 0 1 0 1.389zM7.5 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 1 0 0-11z"></path>
+                        </svg>
+                        </button>
+                        </div>
+                        </div>-->
+                        <button class="search_button" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div id="dashboard-banner-container" class="dashboard-banner-container">
+            <div class="dashboard-container">    
+                <div class='dashboard-banner'>
+                    <div class='dashboard-banner-network-graph'></div>
+                    <div class='dashboard-banner-network-plain-container'>
+                        <div class="dashboard-banner-network-stats">
+                            <div class="dashboard-banner-network-stats-item">
+                                <span class="dashboard-banner-network-stats-label">
+                                Average block time </span>
+                                <span class="dashboard-banner-network-stats-value">5 seconds</span>
+                            </div>
+                            <div class="dashboard-banner-network-stats-item">
+                                <span class="dashboard-banner-network-stats-label">
+                                Total transactions </span>
+                                <span class="dashboard-banner-network-stats-value">6,676,915</span>
+                            </div>
+                            <div class="dashboard-banner-network-stats-item">
+                                <span class="dashboard-banner-network-stats-label">
+                                Total blocks </span>
+                                <span class="dashboard-banner-network-stats-value">9,427,373</span>
+                            </div>
+                            <div class="dashboard-banner-network-stats-item">
+                                <span class="dashboard-banner-network-stats-label">
+                                Wallet addresses </span>
+                                <span class="dashboard-banner-network-stats-value" data-selector="address-count">25,207</span>
+                            </div>
+                        </div>
+                    </div>                
+                </div>  
+            </div>          
+        </div>
+
+        <section class="container">
+                <div class="card card-chain-blocks">
+                    <div class="card-body"></div>
+                </div>
+                
+                <div class="card card-chain-transactions">
+                    <div class="card-body"></div>
+                </div>
+        </section>
+    </main>
+
+    <!--<div id="round2" style="position:relative;margin-bottom:48px">
+        <div id="round2_1" style="border-left: 4px solid #5c34a2"></div>
+        <div id="round2_2" style="border-left: 4px solid #5c34a2"></div>
+    </div>  
+
+    <div style="position:relative; width:100%; box-shadow: 0 0 30px 0 rgba(202,199,226,.5);">
+        <div class="flex">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  -->
+
+    
+  </div>
+
+<div style="width:100%;background:rgb(60,34,106)">
+<footer class="footer" style="width:80%;margin:auto">
+        
+                <div>
+                    <a href="/poa/core/"> <img class="footer-logo" src="FLO_horizontal_text1.svg" alt="POA Core" style="color: #5c34a2; text-decoration: none;"></a> 
+                </div>
+            
+           
+                <div class="footer-column1">
+                    <p class="footer-info-text">Floscout is a tool for inspecting and analyzing FLO based tokens and smart contracts. Token and Smart Contract explorer for FLO Network.</p>
+                    <div>
+                        <a href="https://github.com/poanetwork/blockscout" rel="noreferrer" target="_blank" class="footer-social-icon" title="Github">
+                        <i class="fas fa-github"></i>
+                        </a>
+                        <a href="https://www.twitter.com/_blockscout/" rel="noreferrer" target="_blank" class="footer-social-icon" title="Twitter">
+                        <i class="fas fa-twitter"></i>
+                        </a>
+                        <a href="https://t.me/poa_network" rel="noreferrer" target="_blank" class="footer-social-icon" title="Telegram">
+                        <i class="fas fa-telegram-plane"></i>
+                        </a>
+                    </div>
+                </div>          
+</footer>
+</div>
+</body>
+</html>
