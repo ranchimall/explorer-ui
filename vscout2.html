@@ -280,24 +280,8 @@ body {
     white-space: nowrap;
 }
 
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 0 30px 0 rgba(202,199,226,.5);
-    margin-bottom: 50px;
-    position: relative;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-}
 
-.card-chain-blocks {
-    height: auto;
-}
+
 
 .card-body {
     padding: 30px;
@@ -337,6 +321,71 @@ body {
     max-width: 100%;
 }
 
+
+/*Card Blocks Section */
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 30px 0 rgba(202,199,226,.5);
+    margin-bottom: 50px;
+    position: relative;
+
+
+}
+
+
+
+
+
+
+
+
+
+/*Card Blocks Section */
+
+  .container1{
+                display:flex; 
+                flex-direction:row; 
+                flex-wrap:nowrap; 
+                justify-content:center;
+                padding: 30px 15px 30px;
+            }
+
+
+ .box1class{
+        width:195px;
+        height:122px;
+        
+        color:#828ba0; 
+        
+        font-size: 12px;
+        line-height: 1.4rem;
+
+        border-radius:4px;
+        border:1px solid #dee2e6;
+        border-left: 4px solid #5c34a2;
+        margin-right: 15px;
+        margin-left: 15px;
+        display:flex;
+        flex-direction:column; 
+        padding-top:10px;
+    }         
+
+.box1class a {
+    font-weight: 700;
+    font-size: 12px;
+    color:#5c34a2;
+    text-decoration:none;
+    background-color:transparent;
+   
+    
+}
+
+
+
+/*Footer Section*/
 
 .footerBar {
     flex:1 1 20%;
@@ -444,9 +493,7 @@ body {
                     <div class="card-body"></div>
                 </div>
                 
-                <div class="card card-chain-transactions">
-                    <div class="card-body"></div>
-                </div>
+               
         </section>
     </main>
 
@@ -468,8 +515,32 @@ body {
   </div>
 
 
+<div style="text-align:center;min-width:630px;max-width:1000px;margin:auto">
+    <div  class="card">
+        
+             <div class="container1">
+                <div class='box1class'>
+                    <div style="flex:0 0 30px;text-align: left"><a href="#" style="margin-left: 20px">345678</a></div>
+                    <div style="background: #f6f7f9;flex:1 1 100px;text-align: left"><div style="margin-left: 20px">Test Data</div></div>
+                    
+                </div>
+                <div class='box1class'>
+                </div>
+                <div class='box1class'>
+                </div>
+                <div class='box1class'>
+                </div>
+            </div>
 
-<div id="bottomBar" style="width:100%;background:rgb(60,34,106)">
+
+        
+  </div>
+</div>
+
+
+
+
+<div style="width:100%;background:rgb(60,34,106)">
 
 
 
@@ -487,7 +558,7 @@ body {
         </svg>   
                 
                 <div style="display:flex;justify-content: flex-start;margin-top:30px"> 
-                    <div class="footerBar">
+                    <div class="footerBar" style="max-width: 200px;margin-right: 100px">
                         <div style="padding-right:30px">Floscout is a tool for inspecting and analyzing FLO based tokens and smart contracts. Token and Smart Contract explorer for FLO Network.</div>
         
                         <div style="color:#bda6e7;font-size: 18px;margin-top:25px">
@@ -502,8 +573,6 @@ body {
                                 </a>
                         </div>
                     </div>
-                    <div class="footerBar"></div>
-
                     <div class="footerBar">
                         <h3 >
                             Blockscout
