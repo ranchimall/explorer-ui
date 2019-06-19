@@ -1,445 +1,796 @@
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">   
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-</head> 
- 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+
 <!-- THIS IS A BEAUTIFUL SOLUTION -->
 <style>
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family: 'Titillium Web';-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
 
-body {
-  margin: 0;
-  /*font-family: Nunito,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;*/
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.5;
-/*  color: #212529;*/
-  text-align: left;
-  background-color: #fff;
-}
+    audio,
+    canvas,
+    video {
+        display: inline-block;
+    }
 
-*, *::before, *::after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
 
-.maincontainer{
-  display: flex; 
-  -webkit-box-orient: vertical; 
-  -webkit-box-direction: normal; 
-  flex-direction: column; 
-  min-height: 100vh;
-}
+    [hidden] {
+        display: none;
+    }
 
-.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    html {
+        font-family: 'Titillium Web';
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
 
-    /* media query shiz */
-    max-width: 1140px;
-}
+    body {
+        margin: 0;
+    }
 
-.navbar{
-    background-color: #fff;
-    position: relative;
-    z-index: 100;    
-    padding: 8 16 8 16;
+    a:focus {
+        outline: thin dotted;
+    }
 
-    display: flex;
-    align-items: center;
-    padding: .5rem 1rem;
-    box-shadow: 0 0 30px 0 rgba(21,53,80,.12);
+    a:active,
+    a:hover {
+        outline: 0;
+    }
 
-    /* media query shiz 992*/
-    flex-flow: row nowrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-}
+    h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+    }
 
-.navbar_container{
-    display: flex;
-    flex-wrap: nowrap;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    abbr[title] {
+        border-bottom: 1px dotted;
+    }
 
-    /* media query shiz 1200*/
-    flex-wrap: nowrap;
-    max-width: 1140px;
-}
+    b,
+    strong {
+        font-weight: bold;
+    }
 
-.navbar_brand{
-    color: #fff;
-    margin-left: 0;
-    display: inline-block;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
-}
+    dfn {
+        font-style: italic;
+    }
 
-.navbar_container a {
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
+    hr {
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+    }
 
-.navbar_logo{
-    max-height: 28px;
-    width: auto;
-}
+    mark {
+        background: #ff0;
+        color: #000;
+    }
 
-.navbarmenu_search{
-    flex-grow: 1;
-    -webkit-box-align: center;
-    align-items: center;
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, serif;
+        font-size: 1em;
+    }
 
-    /* media query shiz */
-    display: flex!important;
-    flex-basis: auto;
-}
+    pre {
+        white-space: pre-wrap;
+    }
 
-.searchform_container{
+    q {
+        quotes: "\201C""\201D""\2018""\2019";
+    }
 
-    /* media query shiz 1200*/
-    height: 57px;
-    margin-bottom: -8px;
-    margin-top: -8px;
+    small {
+        font-size: 80%;
+    }
 
-    /* media query inherited shiz 992*/
-    display: flex!important;
-}
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
 
-.search_form{
-    height: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    -webkit-box-align: center;
-    align-items: center;
+    sup {
+        top: -0.5em;
+    }
 
-    /* media query shiz */
-    margin-bottom: 0!important;
-    margin-top: 0!important;
-}
+    sub {
+        bottom: -0.25em;
+    }
 
-.search_button{
-    border-radius: 2px;
-    border: none;
-    display: inline-block;
-    line-height: 1.2;
-    padding: 10px 16px;
-    text-align: center;
-    text-decoration: none;
-    transition: all .4s ease-in-out;
-    white-space: nowrap;
+    img {
+        border: 0;
+    }
 
-    color: #20b760;
-    background-color: transparent;
-    background-image: none;
+    svg:not(:root) {
+        overflow: hidden;
+    }
 
-    position: absolute;
-    width: 1px;
-    text-transform: none;
+    figure {
+        margin: 0;
+    }
 
-    /* media query shiz*/
-    margin-bottom: 0!important;
-    margin-top: 0!important;
-}
+    fieldset {
+        border: 1px solid #c0c0c0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
 
-.main{
-    flex-grow: 1;
-    background-color: #fbfafc;
-    padding-top: 3rem!important;
-    display: block;
-}
+    legend {
+        border: 0;
+        padding: 0;
+    }
 
-.dashboard-banner-container{
-    background-image: linear-gradient(to bottom,#5c34a2,#673ab5);
-    background-color: #5c34a2;
-    box-shadow: 0 5px 40px -5px rgba(0,0,0,.25);
-    margin-top: -3rem;
-    margin-bottom: 3rem;
-    overflow: hidden;
-    padding: 0;
-    position: relative;   
-    display: block; 
-}
+    button,
+    input,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: 100%;
+        margin: 0;
+    }
 
-.dashboard-container{
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    button,
+    input {
+        line-height: normal;
+    }
 
-    /* media query shiz */
-    max-width: 1140px;
-}
+    button,
+    select {
+        text-transform: none;
+    }
 
-.dashboard-banner{
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    position: relative;
-    z-index: 9;
-}
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
 
-.dashboard-banner-network-graph{
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    padding: 15px 0 0;
-}
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
 
-.dashboard-banner-network-plain-container {
-    -webkit-box-align: center;
-    align-items: center;
-    align-self: flex-end;
-    background-color: #8258cd;
-    border-top-left-radius: 10px;
-    display: flex;
-    height: 205px;
-    -webkit-box-pack: center;
-    justify-content: center;
-    margin: 0 0 0 30px;
-    max-width: 100%;
-    padding: 30px 0 30px 60px;
-    width: 750px;
-    position: relative;
-}
+    input[type="checkbox"],
+    input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
 
-.dashboard-banner-network-plain-container::after {
-    background-color: #8258cd;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 205px;
-    left: 0;
-    position: absolute;
-    width: 9999px;
-    z-index: -1;
-    box-shadow: 0 0 35px 0 rgba(0,0,0,.2);
-    border-top-left-radius: 10px;
-}
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
 
-.dashboard-banner-network-stats{
-    column-gap: 25px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
 
-.dashboard-banner-network-stats-item{
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-left: calc(1rem + 4px);
-    padding-right: 1rem;
-    position: relative;
-}
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
 
-.dashboard-banner-network-stats-item::before{
-    background-color: #87e1a9;
-    border-radius: 2px;
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 4px;
-}
+    textarea {
+        overflow: auto;
+        vertical-align: top;
+    }
 
-.dashboard-banner-network-stats-label {
-    color: #dcc8ff;
-    display: block;
-    white-space: nowrap;
-}
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
 
-.dashboard-banner-network-stats-value {
-    color: #fff;
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 200;
-    white-space: nowrap;
-}
+    body {
+        margin: 0;
+        /*font-family: Nunito,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;*/
+        font-size: 1em;
+        font-weight: 400;
+        line-height: 1.5;
+        /*  color: #212529;*/
+        text-align: left;
+        background-color: #fff;
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .maincontainer {
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+
+        /* media query shiz */
+        max-width: 1140px;
+    }
+
+    .navbar {
+        background-color: #fff;
+        position: relative;
+        z-index: 100;
+        padding: 8 16 8 16;
+
+        display: flex;
+        align-items: center;
+        padding: .5rem 1rem;
+        box-shadow: 0 0 30px 0 rgba(21, 53, 80, .12);
+
+        /* media query shiz 992*/
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+
+    .navbar_container {
+        display: flex;
+        flex-wrap: nowrap;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+
+        /* media query shiz 1200*/
+        flex-wrap: nowrap;
+        max-width: 1140px;
+    }
+
+    .navbar_brand {
+        color: #fff;
+        margin-left: 0;
+        display: inline-block;
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: inherit;
+        white-space: nowrap;
+    }
+
+    .navbar_container a {
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    .navbar_logo {
+        max-height: 28px;
+        width: auto;
+    }
+
+    .navbarmenu_search {
+        flex-grow: 1;
+        -webkit-box-align: center;
+        align-items: center;
+
+        /* media query shiz */
+        display: flex !important;
+        flex-basis: auto;
+    }
+
+    .searchform_container {
+
+        /* media query shiz 1200*/
+        height: 57px;
+        margin-bottom: -8px;
+        margin-top: -8px;
+
+        /* media query inherited shiz 992*/
+        display: flex !important;
+    }
+
+    .search_form {
+        height: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        -webkit-box-align: center;
+        align-items: center;
+
+        /* media query shiz */
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .search_button {
+        border-radius: 2px;
+        border: none;
+        display: inline-block;
+        line-height: 1.2;
+        padding: 10px 16px;
+        text-align: center;
+        text-decoration: none;
+        transition: all .4s ease-in-out;
+        white-space: nowrap;
+
+        color: #20b760;
+        background-color: transparent;
+        background-image: none;
+
+        position: absolute;
+        width: 1px;
+        text-transform: none;
+
+        /* media query shiz*/
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .main {
+        flex-grow: 1;
+        background-color: #fbfafc;
+        padding-top: 3rem !important;
+        display: block;
+    }
+
+    .dashboard-banner-container {
+        background-image: linear-gradient(to bottom, #5c34a2, #673ab5);
+        background-color: #5c34a2;
+        box-shadow: 0 5px 40px -5px rgba(0, 0, 0, .25);
+        margin-top: -3rem;
+        margin-bottom: 3rem;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        display: block;
+    }
+
+    .dashboard-container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+
+        /* media query shiz */
+        max-width: 1140px;
+    }
+
+    .dashboard-banner {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        position: relative;
+        z-index: 9;
+    }
+
+    .dashboard-banner-network-graph {
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        padding: 15px 0 0;
+    }
+
+    .dashboard-banner-network-plain-container {
+        -webkit-box-align: center;
+        align-items: center;
+        align-self: flex-end;
+        background-color: #8258cd;
+        border-top-left-radius: 10px;
+        display: flex;
+        height: 205px;
+        -webkit-box-pack: center;
+        justify-content: center;
+        margin: 0 0 0 30px;
+        max-width: 100%;
+        padding: 30px 0 30px 60px;
+        width: 750px;
+        position: relative;
+    }
+
+    .dashboard-banner-network-plain-container::after {
+        background-color: #8258cd;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 205px;
+        left: 0;
+        position: absolute;
+        width: 9999px;
+        z-index: -1;
+        box-shadow: 0 0 35px 0 rgba(0, 0, 0, .2);
+        border-top-left-radius: 10px;
+    }
+
+    .dashboard-banner-network-stats {
+        column-gap: 25px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .dashboard-banner-network-stats-item {
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-left: calc(1rem + 4px);
+        padding-right: 1rem;
+        position: relative;
+    }
+
+    .dashboard-banner-network-stats-item::before {
+        background-color: #87e1a9;
+        border-radius: 2px;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+
+    .dashboard-banner-network-stats-label {
+        color: #dcc8ff;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .dashboard-banner-network-stats-value {
+        color: #fff;
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 200;
+        white-space: nowrap;
+    }
+
+    .card-body {
+        padding: 30px;
+        -webkit-box-flex: 1;
+        flex: 1 1 auto;
+    }
+
+    .card-chain-transactions {
+        height: auto;
+    }
+
+    .footer {
+        background: #3c226a;
+        color: #bda6e7;
+        font-size: 12px;
+        line-height: 1.67;
+        margin: 0;
+        padding: 40px 0;
+        position: relative;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .footer-logo-row {
+        margin-bottom: 30px;
+    }
+
+    .col-md-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 
 
+    /*Card Blocks Section */
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 0 30px 0 rgba(202, 199, 226, .5);
+        margin-bottom: 50px;
+        position: relative;
+    }
 
 
-.card-body {
-    padding: 30px;
-    -webkit-box-flex: 1;
-    flex: 1 1 auto;
-}
+    /*Card Blocks Section */
 
-.card-chain-transactions {
-    height: auto;
-}
-
-.footer {
-    background: #3c226a;
-    color: #bda6e7;
-    font-size: 12px;
-    line-height: 1.67;
-    margin: 0;
-    padding: 40px 0;
-    position: relative;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-.footer-logo-row {
-    margin-bottom: 30px;
-}
-
-.col-md-12 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-}
+    .container1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        padding: 30px 15px 30px;
+    }
 
 
-/*Card Blocks Section */
+    .box1class {
+        width: 195px;
+        height: 122px;
 
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 0 30px 0 rgba(202,199,226,.5);
-    margin-bottom: 50px;
-    position: relative;
+        color: #828ba0;
 
-
-}
-
-
-
-
-
-
-
-
-
-/*Card Blocks Section */
-
-  .container1{
-                display:flex; 
-                flex-direction:row; 
-                flex-wrap:nowrap; 
-                justify-content:center;
-                padding: 30px 15px 30px;
-            }
-
-
- .box1class{
-        width:195px;
-        height:122px;
-        
-        color:#828ba0; 
-        
         font-size: 12px;
         line-height: 1.4rem;
 
-        border-radius:4px;
-        border:1px solid #dee2e6;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
         border-left: 4px solid #5c34a2;
         margin-right: 15px;
         margin-left: 15px;
-        display:flex;
-        flex-direction:column; 
-        padding-top:10px;
-    }         
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
 
-.box1class a {
-    font-weight: 700;
-    font-size: 12px;
-    color:#5c34a2;
-    text-decoration:none;
-    background-color:transparent;
-   
-    
-}
+    .box1class a {
+        font-weight: 700;
+        font-size: 12px;
+        color: #5c34a2;
+        text-decoration: none;
+        background-color: transparent;
+    }
 
 
+    /* Card Transaction section */
+    .box2class {
+        width: 195px;
+        height: 122px;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        border-left: 4px solid #5c34a2;
+        margin-right: 15px;
+        margin-left: 15px;
+        flex-shrink: 0;
 
-/*Footer Section*/
+        color: #a5b2cf;
 
-.footerBar {
-    flex:1 1 20%;
-    
-    
-}
+        font-size: 12px;
+        line-height: 1.4rem;
+
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .box3class {
+        width: auto;
+        height: 122px;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        border-left: 4px solid #5c34a2;
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        flex-shrink: 0;
+
+        color: #a5b2cf;
+
+        font-size: 12px;
+        line-height: 1.4rem;
+
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .transactions-token-transfer {
+        width: auto;
+        height: 132px;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        border-left: 4px solid #ef9a60;
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        flex-shrink: 0;
+
+        color: #a5b2cf;
+
+        font-size: 12px;
+        line-height: 1.4rem;
+    }
+
+    .color-block-token-transfer {
+        background-color: rgba(239,154,96,.1);
+        border-bottom: 1px solid #ef9a60;
+        border-right: 1px solid #ef9a60;
+        border-top: 1px solid #ef9a60;
+        color: #ef9a60;
+
+        height:132px;
+        width:172px;
+        align-items: center;
+
+        margin-top: -1px;
+        margin-left: -4px;
+        border-radius: 4px 0px 0px 4px;
+    }
+
+    .transactions-transaction {
+        width: auto;
+        height: 100px;
+        border: 1px solid #dee2e6;
+        border-left: 4px solid #4786ff;
+        border-radius: 4px;
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        flex-shrink: 0;
+
+        color: #a5b2cf;
+
+        font-size: 12px;
+        line-height: 1.4rem;
+    }
 
 
+    .color-block-transaction {
+        background-color: rgba(71,134,255,.1);
+        border-bottom: 1px solid #4786ff;
+        border-right: 1px solid #4786ff;
+        border-top: 1px solid #4786ff;
+        color: #4786ff;
 
+        height:100px;
+        width:172px;
+        align-items: center;
 
-.footerBar a {
-    color:inherit;
-    text-decoration: none;
-    margin-right: 15px;
-}
+        margin-top: -1px;
+        margin-left: -4px;
+        border-radius: 4px 0px 0px 4px;
+    }
 
-.footerBar h3 {
-    margin: 0px 0px 15px 0px;
-    padding: 0px;
-}
+    .transactions-transaction-content{
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
 
-.footerBar ul {
-    margin: 0px 0px 25px 12px;
-    padding: 0px;
-    list-style: none;
-}
+        -webkit-box-orient: vertical!important;
+        -webkit-box-direction: normal!important;
+        flex-direction: column!important;    
+        display: flex!important;    
+        padding-right: 0!important;
+        flex: 0 0 66.66666667%;
+        max-width: 66.66666667%;
+    }
 
-.footerBar li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #87e1a9; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */ 
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
-  margin-right: 10px;
-}
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        padding: 30px 15px 30px;
+    }
 
+    /*Footer Section*/
 
+    .footerBar {
+        flex: 1 1 20%;
+    }
+
+    .footerBar a {
+        color: inherit;
+        text-decoration: none;
+        margin-right: 15px;
+    }
+
+    .footerBar h3 {
+        margin: 0px 0px 15px 0px;
+        padding: 0px;
+    }
+
+    .footerBar ul {
+        margin: 0px 0px 25px 12px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    .footerBar li::before {
+        content: "\2022";
+        /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        color: #87e1a9;
+        /* Change the color */
+        font-weight: bold;
+        /* If you want it to be bold */
+        display: inline-block;
+        /* Needed to add space between the bullet and the text */
+        width: 1em;
+        /* Also needed for space (tweak if needed) */
+        margin-left: -1em;
+        /* Also needed for space (tweak if needed) */
+        margin-right: 10px;
+    }
+
+    .transfer-indicator {
+        background-color: rgba(71, 134, 255, .1);
+        border-bottom: 1px solid #4786ff;
+        border-right: 1px solid #4786ff;
+        border-top: 1px solid #4786ff;
+        color: #4786ff;
+        -webkit-box-align: center;
+        align-items: center;
+        bottom: -17px;
+        -webkit-box-pack: center;
+        justify-content: center;
+        margin-left: -1px;
+        margin-top: -34px;
+        padding: 0;
+        position: relative;
+
+        /* media query shiz */
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+        flex-direction: column !important;
+        display: flex !important;
+        -webkit-box-flex: 0;
+        flex: 0 0 16.66666667%;
+        max-width: 16.66666667%;
+    }
 </style>
 
 <body>
-  <div class="maincontainer">
+    <div class="maincontainer">
 
-    <nav class="navbar">
-        <div class="navbar_container">  
-            <a href="vscout2.html">
-                <img class="navbar-logo" style="vertical-align:middle; border-style:none;" src="FLO_horizontal_text1.svg" alt="POA Core">
-            </a>
-            
-            <div class="navbarmenu_search">
-                <ul> </ul>
-                <div class="searchform_container">
-                    <form action="" class="search_form" method="get"> 
-                        <!-- <div class="input-group" title="Search by address, token symbol name, transaction hash, or block number">
+        <nav class="navbar">
+            <div class="navbar_container">
+                <a href="vscout2.html">
+                    <img class="navbar-logo" style="vertical-align:middle; border-style:none;"
+                        src="FLO_horizontal_text1.svg" alt="POA Core">
+                </a>
+
+                <div class="navbarmenu_search">
+                    <ul> </ul>
+                    <div class="searchform_container">
+                        <form action="" class="search_form" method="get">
+                            <!-- <div class="input-group" title="Search by address, token symbol name, transaction hash, or block number">
                         <div class="awesomplete"><input aria-describedby="search-icon" aria-label="Search" class="form-control me auto" data-test="search_input" id="q" name="q" placeholder="Search by address, token symbol name, transaction hash, or block number" type="text" autocomplete="off" aria-autocomplete="list"><ul hidden=""></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-relevant="additions"></span></div><script type="text/javascript">AwesompleteUtil.start('#q', {url: '/poa/core/token_autocomplete?q=', limit: 0}, {minChars: 2, data: function(rec, input) { return { label: (rec['contract_address_hash'] || '').replace('<p>', '<p >')+'<p>'+(rec['symbol'] || ''), value: rec['contract_address_hash']+'|'+(rec['symbol'] || '').replace('|', ' ') }; }, replace: function(data) { var text = data.value.substring(0, data.value.lastIndexOf('|')); this.input.value = text; }, filter: AwesompleteUtil.filterContains, item: AwesompleteUtil.itemMarkAll});</script> <div class="input-group-append">
                         <button class="input-group-text" id="search-icon">
                         <svg viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg" width="16" height="17">
@@ -448,56 +799,55 @@ body {
                         </button>
                         </div>
                         </div>-->
-                        <button class="search_button" type="submit">Search</button>
-                    </form>
+                            <button class="search_button" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <main>
-        <div id="dashboard-banner-container" class="dashboard-banner-container">
-            <div class="dashboard-container">    
-                <div class='dashboard-banner'>
-                    <div class='dashboard-banner-network-graph'></div>
-                    <div class='dashboard-banner-network-plain-container'>
-                        <div class="dashboard-banner-network-stats">
-                            <div class="dashboard-banner-network-stats-item">
-                                <span class="dashboard-banner-network-stats-label">
-                                Average block time </span>
-                                <span class="dashboard-banner-network-stats-value">5 seconds</span>
-                            </div>
-                            <div class="dashboard-banner-network-stats-item">
-                                <span class="dashboard-banner-network-stats-label">
-                                Total transactions </span>
-                                <span class="dashboard-banner-network-stats-value">6,676,915</span>
-                            </div>
-                            <div class="dashboard-banner-network-stats-item">
-                                <span class="dashboard-banner-network-stats-label">
-                                Total blocks </span>
-                                <span class="dashboard-banner-network-stats-value">9,427,373</span>
-                            </div>
-                            <div class="dashboard-banner-network-stats-item">
-                                <span class="dashboard-banner-network-stats-label">
-                                Wallet addresses </span>
-                                <span class="dashboard-banner-network-stats-value" data-selector="address-count">25,207</span>
+        <main>
+            <div id="dashboard-banner-container" class="dashboard-banner-container">
+                <div class="dashboard-container">
+                    <div class='dashboard-banner'>
+                        <div class='dashboard-banner-network-graph'></div>
+                        <div class='dashboard-banner-network-plain-container'>
+                            <div class="dashboard-banner-network-stats">
+                                <div class="dashboard-banner-network-stats-item">
+                                    <span class="dashboard-banner-network-stats-label">
+                                        Average block time </span>
+                                    <span class="dashboard-banner-network-stats-value">5 seconds</span>
+                                </div>
+                                <div class="dashboard-banner-network-stats-item">
+                                    <span class="dashboard-banner-network-stats-label">
+                                        Total transactions </span>
+                                    <span class="dashboard-banner-network-stats-value">6,676,915</span>
+                                </div>
+                                <div class="dashboard-banner-network-stats-item">
+                                    <span class="dashboard-banner-network-stats-label">
+                                        Total blocks </span>
+                                    <span class="dashboard-banner-network-stats-value">9,427,373</span>
+                                </div>
+                                <div class="dashboard-banner-network-stats-item">
+                                    <span class="dashboard-banner-network-stats-label">
+                                        Wallet addresses </span>
+                                    <span class="dashboard-banner-network-stats-value"
+                                        data-selector="address-count">25,207</span>
+                                </div>
                             </div>
                         </div>
-                    </div>                
-                </div>  
-            </div>          
-        </div>
+                    </div>
+                </div>
+            </div>
 
-        <section class="container">
+            <section class="container">
                 <div class="card card-chain-blocks">
                     <div class="card-body"></div>
                 </div>
-                
-               
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <!--<div id="round2" style="position:relative;margin-bottom:48px">
+        <!--<div id="round2" style="position:relative;margin-bottom:48px">
         <div id="round2_1" style="border-left: 4px solid #5c34a2"></div>
         <div id="round2_2" style="border-left: 4px solid #5c34a2"></div>
     </div>  
@@ -511,114 +861,155 @@ body {
         </div>
     </div>  -->
 
-    
-  </div>
+
+    </div>
 
 
-<div style="text-align:center;min-width:630px;max-width:1000px;margin:auto">
-    <div  class="card">
-        
-             <div class="container1">
+    <!-- Blocks Card -->
+    <div style="text-align:center;min-width:630px;max-width:1000px;margin:auto">
+        <div class="card">
+            <div class="container1">
                 <div class='box1class'>
                     <div style="flex:0 0 30px;text-align: left"><a href="#" style="margin-left: 20px">345678</a></div>
-                    <div style="background: #f6f7f9;flex:1 1 100px;text-align: left"><div style="margin-left: 20px">Test Data</div></div>
-                    
+                    <div style="background: #f6f7f9;flex:1 1 100px;text-align: left">
+                        <div style="margin-left: 20px">Test Data</div>
+                    </div>
                 </div>
-                <div class='box1class'>
-                </div>
-                <div class='box1class'>
-                </div>
-                <div class='box1class'>
-                </div>
+                <div class='box1class'></div>
+                <div class='box1class'></div>
+                <div class='box1class'></div>
             </div>
+        </div>
+    </div>
 
+    <!-- Transaction Card -->
+    <div style="text-align:center;min-width:630px;max-width:1000px;margin:auto">
+        <div class="card">
+            <div class="container2">
+                <h2 style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
+                    Transactions</h2>
 
-        
-  </div>
-</div>
+                <div class='transactions-token-transfer'>
+                    <div style="display:flex; flex-direction: column;">
+                        <div class='color-block-token-transfer'>
+                            <span style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                Token Transfer</span>
+                            <span style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                    Token Transfer</span>
+                        </div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
 
-
-
-
-<div style="width:100%;background:rgb(60,34,106)">
-
-
-
-    <div class="footer" style="width:80%;margin:auto">
-                
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59pt" height="27pt" viewBox="0 0 59 27" version="1.1">
-
-                    <g id="surface1">
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;" d="M 46.871094 22.328125 L 39.714844 22.328125 L 39.714844 12.007812 L 41.496094 12.007812 L 41.496094 20.691406 L 46.871094 20.691406 Z M 46.871094 22.328125 "/>
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white" d="M 53.628906 22.503906 C 52.839844 22.503906 52.121094 22.363281 51.46875 22.085938 C 50.816406 21.804688 50.257812 21.421875 49.789062 20.941406 C 49.324219 20.460938 48.957031 19.898438 48.695312 19.253906 C 48.433594 18.609375 48.300781 17.925781 48.300781 17.195312 L 48.300781 17.167969 C 48.300781 16.4375 48.433594 15.753906 48.695312 15.109375 C 48.957031 14.464844 49.328125 13.902344 49.804688 13.414062 C 50.28125 12.929688 50.847656 12.542969 51.5 12.257812 C 52.148438 11.972656 52.871094 11.832031 53.660156 11.832031 C 54.445312 11.832031 55.167969 11.96875 55.820312 12.25 C 56.472656 12.53125 57.03125 12.910156 57.496094 13.394531 C 57.964844 13.875 58.332031 14.4375 58.59375 15.082031 C 58.855469 15.726562 58.988281 16.410156 58.988281 17.136719 L 58.988281 17.167969 C 58.988281 17.894531 58.855469 18.578125 58.59375 19.222656 C 58.332031 19.867188 57.960938 20.433594 57.484375 20.917969 C 57.007812 21.40625 56.441406 21.792969 55.789062 22.074219 C 55.136719 22.359375 54.417969 22.503906 53.628906 22.503906 M 53.660156 20.839844 C 54.164062 20.839844 54.625 20.742188 55.046875 20.550781 C 55.46875 20.359375 55.828125 20.097656 56.128906 19.769531 C 56.429688 19.441406 56.667969 19.054688 56.835938 18.613281 C 57.003906 18.167969 57.089844 17.699219 57.089844 17.195312 L 57.089844 17.167969 C 57.089844 16.667969 57.003906 16.191406 56.835938 15.746094 C 56.667969 15.296875 56.429688 14.910156 56.125 14.578125 C 55.816406 14.25 55.453125 13.988281 55.027344 13.789062 C 54.597656 13.59375 54.132812 13.496094 53.628906 13.496094 C 53.125 13.496094 52.664062 13.589844 52.242188 13.785156 C 51.820312 13.976562 51.460938 14.234375 51.15625 14.566406 C 50.859375 14.894531 50.621094 15.28125 50.453125 15.722656 C 50.285156 16.164062 50.199219 16.636719 50.199219 17.136719 L 50.199219 17.167969 C 50.199219 17.667969 50.285156 18.140625 50.453125 18.589844 C 50.621094 19.039062 50.859375 19.425781 51.164062 19.753906 C 51.472656 20.085938 51.835938 20.347656 52.261719 20.542969 C 52.691406 20.738281 53.15625 20.839844 53.660156 20.839844 Z M 53.660156 20.839844 "/>
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;" d="M 30.140625 16.488281 L 30.140625 22.328125 L 31.921875 22.328125 L 31.921875 18.125 L 37.074219 18.125 L 37.074219 16.488281 Z M 30.140625 16.488281 "/>
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;" d="M 30.140625 12.007812 L 30.140625 13.644531 L 37.730469 13.644531 L 37.730469 12.007812 Z M 30.140625 12.007812 "/>
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;" d="M 13.109375 19.214844 C 11.601562 21.222656 11.601562 23.203125 13.109375 25.144531 C 14.617188 23.203125 14.617188 21.222656 13.109375 19.214844 M 13.109375 2.800781 C 9.648438 7.207031 9.648438 11.6875 13.109375 16.25 C 16.570312 11.6875 16.570312 7.207031 13.109375 2.800781 Z M 5.273438 22.441406 C 6.546875 19.515625 9.21875 18.070312 12.203125 18.105469 C 8.417969 14.140625 5.128906 12.539062 2.339844 13.3125 C 2.710938 15.5 4.21875 17.359375 6.859375 18.890625 C 3.820312 17.921875 1.53125 15.578125 0 11.859375 C 4.558594 11.074219 8.152344 12.210938 10.773438 15.261719 C 8.382812 10.101562 9.160156 5.007812 13.109375 -0.0117188 C 17.058594 5.007812 17.835938 10.097656 15.445312 15.261719 C 18.066406 12.210938 21.660156 11.074219 26.21875 11.859375 C 24.6875 15.578125 22.398438 17.921875 19.359375 18.890625 C 22 17.359375 23.507812 15.5 23.878906 13.3125 C 21.089844 12.542969 17.800781 14.140625 14.015625 18.105469 C 17 18.070312 19.671875 19.515625 20.945312 22.441406 C 18.691406 22.953125 16.835938 22.601562 15.382812 21.394531 C 16.972656 22.207031 18.339844 22.328125 19.492188 21.757812 C 18.988281 20.21875 16.757812 19.152344 13.90625 18.5625 C 15.53125 21.410156 15.265625 24.21875 13.109375 26.980469 C 10.953125 24.21875 10.6875 21.410156 12.3125 18.5625 C 9.460938 19.152344 7.230469 20.21875 6.726562 21.757812 C 7.878906 22.328125 9.246094 22.207031 10.835938 21.394531 C 9.382812 22.601562 7.527344 22.953125 5.273438 22.441406 Z M 5.273438 22.441406 "/>
-                    </g>
-        </svg>   
-                
-                <div style="display:flex;justify-content: flex-start;margin-top:30px"> 
-                    <div class="footerBar" style="max-width: 200px;margin-right: 100px">
-                        <div style="padding-right:30px">Floscout is a tool for inspecting and analyzing FLO based tokens and smart contracts. Token and Smart Contract explorer for FLO Network.</div>
-        
-                        <div style="color:#bda6e7;font-size: 18px;margin-top:25px">
-                                <a href="h#" rel="noreferrer" target="_blank"  title="Github">
-                                <i class="fab fa-github fa-lg"></i>
-                                </a>
-                                <a href="#" rel="noreferrer" target="_blank" title="Twitter">
-                                <i class="fab fa-twitter fa-lg"></i>
-                                </a>
-                                <a href="#" rel="noreferrer" target="_blank" title="Telegram">
-                                <i class="fab fa-telegram fa-lg"></i>
-                                </a>
+                <div class='transactions-transaction'>
+                    <div style="display:flex; flex-direction:column; width:172px;">
+                        <div class='color-block-transaction'>
+                            <span style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                Transactions</span>
+                            <span style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                    Success</span>
                         </div>
                     </div>
-                    <div class="footerBar">
-                        <h3 >
-                            Blockscout
-                        </h3>
-                         <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                    </ul>
-                    </div>
+                    <div style="overflow:none" class="transactions-transaction-content">kjhkjkjdf</div>
+                    <div></div>
                     
-                    <div class="footerBar">
-                        <h3 >
-                            Tokens        
-                      
-                        </h3>
-                         <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                    </ul>
-                    </div>
+                </div>
 
-                    <div class="footerBar">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div style="width:100%;background:rgb(60,34,106)">
+
+
+
+        <div class="footer" style="width:80%;margin:auto">
+
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59pt"
+                height="27pt" viewBox="0 0 59 27" version="1.1">
+
+                <g id="surface1">
+                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
+                        d="M 46.871094 22.328125 L 39.714844 22.328125 L 39.714844 12.007812 L 41.496094 12.007812 L 41.496094 20.691406 L 46.871094 20.691406 Z M 46.871094 22.328125 " />
+                    <path style=" stroke:none;fill-rule:nonzero;fill:white"
+                        d="M 53.628906 22.503906 C 52.839844 22.503906 52.121094 22.363281 51.46875 22.085938 C 50.816406 21.804688 50.257812 21.421875 49.789062 20.941406 C 49.324219 20.460938 48.957031 19.898438 48.695312 19.253906 C 48.433594 18.609375 48.300781 17.925781 48.300781 17.195312 L 48.300781 17.167969 C 48.300781 16.4375 48.433594 15.753906 48.695312 15.109375 C 48.957031 14.464844 49.328125 13.902344 49.804688 13.414062 C 50.28125 12.929688 50.847656 12.542969 51.5 12.257812 C 52.148438 11.972656 52.871094 11.832031 53.660156 11.832031 C 54.445312 11.832031 55.167969 11.96875 55.820312 12.25 C 56.472656 12.53125 57.03125 12.910156 57.496094 13.394531 C 57.964844 13.875 58.332031 14.4375 58.59375 15.082031 C 58.855469 15.726562 58.988281 16.410156 58.988281 17.136719 L 58.988281 17.167969 C 58.988281 17.894531 58.855469 18.578125 58.59375 19.222656 C 58.332031 19.867188 57.960938 20.433594 57.484375 20.917969 C 57.007812 21.40625 56.441406 21.792969 55.789062 22.074219 C 55.136719 22.359375 54.417969 22.503906 53.628906 22.503906 M 53.660156 20.839844 C 54.164062 20.839844 54.625 20.742188 55.046875 20.550781 C 55.46875 20.359375 55.828125 20.097656 56.128906 19.769531 C 56.429688 19.441406 56.667969 19.054688 56.835938 18.613281 C 57.003906 18.167969 57.089844 17.699219 57.089844 17.195312 L 57.089844 17.167969 C 57.089844 16.667969 57.003906 16.191406 56.835938 15.746094 C 56.667969 15.296875 56.429688 14.910156 56.125 14.578125 C 55.816406 14.25 55.453125 13.988281 55.027344 13.789062 C 54.597656 13.59375 54.132812 13.496094 53.628906 13.496094 C 53.125 13.496094 52.664062 13.589844 52.242188 13.785156 C 51.820312 13.976562 51.460938 14.234375 51.15625 14.566406 C 50.859375 14.894531 50.621094 15.28125 50.453125 15.722656 C 50.285156 16.164062 50.199219 16.636719 50.199219 17.136719 L 50.199219 17.167969 C 50.199219 17.667969 50.285156 18.140625 50.453125 18.589844 C 50.621094 19.039062 50.859375 19.425781 51.164062 19.753906 C 51.472656 20.085938 51.835938 20.347656 52.261719 20.542969 C 52.691406 20.738281 53.15625 20.839844 53.660156 20.839844 Z M 53.660156 20.839844 " />
+                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
+                        d="M 30.140625 16.488281 L 30.140625 22.328125 L 31.921875 22.328125 L 31.921875 18.125 L 37.074219 18.125 L 37.074219 16.488281 Z M 30.140625 16.488281 " />
+                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
+                        d="M 30.140625 12.007812 L 30.140625 13.644531 L 37.730469 13.644531 L 37.730469 12.007812 Z M 30.140625 12.007812 " />
+                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
+                        d="M 13.109375 19.214844 C 11.601562 21.222656 11.601562 23.203125 13.109375 25.144531 C 14.617188 23.203125 14.617188 21.222656 13.109375 19.214844 M 13.109375 2.800781 C 9.648438 7.207031 9.648438 11.6875 13.109375 16.25 C 16.570312 11.6875 16.570312 7.207031 13.109375 2.800781 Z M 5.273438 22.441406 C 6.546875 19.515625 9.21875 18.070312 12.203125 18.105469 C 8.417969 14.140625 5.128906 12.539062 2.339844 13.3125 C 2.710938 15.5 4.21875 17.359375 6.859375 18.890625 C 3.820312 17.921875 1.53125 15.578125 0 11.859375 C 4.558594 11.074219 8.152344 12.210938 10.773438 15.261719 C 8.382812 10.101562 9.160156 5.007812 13.109375 -0.0117188 C 17.058594 5.007812 17.835938 10.097656 15.445312 15.261719 C 18.066406 12.210938 21.660156 11.074219 26.21875 11.859375 C 24.6875 15.578125 22.398438 17.921875 19.359375 18.890625 C 22 17.359375 23.507812 15.5 23.878906 13.3125 C 21.089844 12.542969 17.800781 14.140625 14.015625 18.105469 C 17 18.070312 19.671875 19.515625 20.945312 22.441406 C 18.691406 22.953125 16.835938 22.601562 15.382812 21.394531 C 16.972656 22.207031 18.339844 22.328125 19.492188 21.757812 C 18.988281 20.21875 16.757812 19.152344 13.90625 18.5625 C 15.53125 21.410156 15.265625 24.21875 13.109375 26.980469 C 10.953125 24.21875 10.6875 21.410156 12.3125 18.5625 C 9.460938 19.152344 7.230469 20.21875 6.726562 21.757812 C 7.878906 22.328125 9.246094 22.207031 10.835938 21.394531 C 9.382812 22.601562 7.527344 22.953125 5.273438 22.441406 Z M 5.273438 22.441406 " />
+                </g>
+            </svg>
+
+            <div style="display:flex;justify-content: flex-start;margin-top:30px">
+                <div class="footerBar" style="max-width: 200px;margin-right: 100px">
+                    <div style="padding-right:30px">Floscout is a tool for inspecting and analyzing FLO based tokens and
+                        smart contracts. Token and Smart Contract explorer for FLO Network.</div>
+
+                    <div style="color:#bda6e7;font-size: 18px;margin-top:25px">
+                        <a href="h#" rel="noreferrer" target="_blank" title="Github">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="#" rel="noreferrer" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="#" rel="noreferrer" target="_blank" title="Telegram">
+                            <i class="fab fa-telegram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footerBar">
                     <h3>
-                        Smart Contracts
-        
+                        Blockscout
                     </h3>
                     <ul>
                         <li>First</li>
                         <li>Second</li>
                         <li>Third</li>
                         <li>Fourth</li>
-                    </ul>    
+                    </ul>
                 </div>
-               </div>               
+
+                <div class="footerBar">
+                    <h3>
+                        Tokens
+
+                    </h3>
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                        <li>Fourth</li>
+                    </ul>
+                </div>
+
+                <div class="footerBar">
+                    <h3>
+                        Smart Contracts
+
+                    </h3>
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                        <li>Fourth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div style="height:70px"></div>
     </div>
 
 
 
-<div style="height:70px"></div>
-</div>
-
-
-
 </body>
+
 </html>
