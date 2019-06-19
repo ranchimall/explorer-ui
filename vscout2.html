@@ -539,7 +539,7 @@
 
     .container1 {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: nowrap;
         justify-content: center;
         padding: 30px 15px 30px;
@@ -547,7 +547,7 @@
 
 
     .box1class {
-        width: 195px;
+        width: 240px;
         height: 122px;
 
         color: #828ba0;
@@ -617,46 +617,54 @@
         padding-top: 10px;
     }
 
-    .transactions-token-transfer {
-        width: auto;
-        height: 132px;
-        border-radius: 4px;
-        border: 1px solid #dee2e6;
-        border-left: 4px solid #ef9a60;
-        margin-right: 15px;
-        margin-left: 15px;
-        margin-top: 9px;
-        margin-bottom: 9px;
-        flex-shrink: 0;
-
-        color: #a5b2cf;
-
-        font-size: 12px;
-        line-height: 1.4rem;
-    }
 
     .color-block-token-transfer {
-        background-color: rgba(239,154,96,.1);
+        background-color: rgba(239, 154, 96, .1);
         border-bottom: 1px solid #ef9a60;
         border-right: 1px solid #ef9a60;
         border-top: 1px solid #ef9a60;
         color: #ef9a60;
 
-        height:132px;
-        width:172px;
-        align-items: center;
+        height: 132px;
+        width: 172px;
 
         margin-top: -1px;
         margin-left: -4px;
         border-radius: 4px 0px 0px 4px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        justify-content: center;
     }
 
-    .transactions-transaction {
+    .color-block-token-creation {
+        background-color: rgba(239, 211, 96, .1);
+        border-bottom: 1px solid #FB0112;
+        border-right: 1px solid #FB0112;
+        border-top: 1px solid #FB0112;
+        color: #FB0112;
+
+        height: 132px;
+        width: 172px;
+
+        margin-top: -1px;
+        margin-left: -4px;
+        border-radius: 4px 0px 0px 4px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        justify-content: center;
+    }
+
+    .transactions {
         width: auto;
-        height: 100px;
-        border: 1px solid #dee2e6;
-        border-left: 4px solid #4786ff;
         border-radius: 4px;
+        border: 1px solid #dee2e6;
+
         margin-right: 15px;
         margin-left: 15px;
         margin-top: 9px;
@@ -669,37 +677,86 @@
         line-height: 1.4rem;
     }
 
+    .token-transfer {
+        height: 132px;
+        border-left: 4px solid #ef9a60;
+    }
+
+    .token-creation {
+        height: 132px;
+        border-left: 4px solid #FB0112;
+    }
+
+    .transaction {
+        height: 100px;
+        border-left: 4px solid #4786ff;
+    }
+
 
     .color-block-transaction {
-        background-color: rgba(71,134,255,.1);
+        background-color: rgba(71, 134, 255, .1);
         border-bottom: 1px solid #4786ff;
         border-right: 1px solid #4786ff;
         border-top: 1px solid #4786ff;
         color: #4786ff;
 
-        height:100px;
-        width:172px;
-        align-items: center;
+        height: 100px;
+        width: 172px;
 
         margin-top: -1px;
         margin-left: -4px;
         border-radius: 4px 0px 0px 4px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        justify-content: center;
     }
 
-    .transactions-transaction-content{
-        position: relative;
+    .transactions-content {
         width: 100%;
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        -webkit-box-orient: vertical!important;
-        -webkit-box-direction: normal!important;
-        flex-direction: column!important;    
-        display: flex!important;    
-        padding-right: 0!important;
-        flex: 0 0 66.66666667%;
         max-width: 66.66666667%;
+        padding: 16px 0px 16px 15px;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        flex: 0 0 66.66666667%;
+    }
+
+    .transactions a {
+        color: #5c34a2;
+        text-decoration: none;
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        font-size: 12px;
+        line-height: 1.4rem;
+    }
+
+    .transactions-token-transfer-content {
+        width: 100%;
+        max-width: 66.66666667%;
+        padding: 16px 0px 16px 15px;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        flex: 0 0 66.66666667%;
+    }
+
+
+    .blockinfo {
+        text-align: right;
+        padding: 16px 15px 16px 15px;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center
     }
 
     .container2 {
@@ -847,73 +904,150 @@
             </section>
         </main>
 
-        <!--<div id="round2" style="position:relative;margin-bottom:48px">
-        <div id="round2_1" style="border-left: 4px solid #5c34a2"></div>
-        <div id="round2_2" style="border-left: 4px solid #5c34a2"></div>
-    </div>  
-
-    <div style="position:relative; width:100%; box-shadow: 0 0 30px 0 rgba(202,199,226,.5);">
-        <div class="flex">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  -->
-
 
     </div>
 
 
     <!-- Blocks Card -->
-    <div style="text-align:center;min-width:630px;max-width:1000px;margin:auto">
+    <div style="text-align:center; min-width:630px; max-width:1140px; margin:auto">
         <div class="card">
             <div class="container1">
-                <div class='box1class'>
-                    <div style="flex:0 0 30px;text-align: left"><a href="#" style="margin-left: 20px">345678</a></div>
-                    <div style="background: #f6f7f9;flex:1 1 100px;text-align: left">
-                        <div style="margin-left: 20px">Test Data</div>
+                <h2
+                    style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
+                    Blocks</h2>
+
+                <div style="display:flex; flex-direction:row">
+                    <div class='box1class'>
+                        <div style="flex:0 0 30px;text-align: left"><a href="#" style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
+                        </div>
+                        <div
+                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
+                            <div>Test Data</div>
+                        </div>
+                    </div>
+                    <div class='box1class'>
+                        <div style="flex:0 0 30px;text-align: left"><a href="#" style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
+                        </div>
+                        <div
+                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
+                            <div>Test Data</div>
+                        </div>
+                    </div>
+                    <div class='box1class'>
+                        <div style="flex:0 0 30px;text-align: left"><a href="#" style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
+                        </div>
+                        <div
+                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
+                            <div>Test Data</div>
+                        </div>
+                    </div>
+                    <div class='box1class'>
+                        <div style="flex:0 0 30px;text-align: left"><a href="#" style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
+                        </div>
+                        <div
+                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
+                            <div>Test Data</div>
+                        </div>
                     </div>
                 </div>
-                <div class='box1class'></div>
-                <div class='box1class'></div>
-                <div class='box1class'></div>
+
             </div>
         </div>
     </div>
 
     <!-- Transaction Card -->
-    <div style="text-align:center;min-width:630px;max-width:1000px;margin:auto">
+    <div style="text-align:center;min-width:630px;max-width:1140px;margin:auto">
         <div class="card">
             <div class="container2">
-                <h2 style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
+                <h2
+                    style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
                     Transactions</h2>
 
-                <div class='transactions-token-transfer'>
-                    <div style="display:flex; flex-direction: column;">
-                        <div class='color-block-token-transfer'>
-                            <span style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Transfer</span>
-                            <span style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                    Token Transfer</span>
+                <div class='transactions token-creation'>
+                    <div style="display:flex;">
+                        <div class='color-block-token-creation'>
+                            <span
+                                style="color:#FB0112; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                Token Creation</span>
+                            <span
+                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                RMT</span>
                         </div>
-                        <div></div>
-                        <div></div>
+                        <div class="transactions-content">
+                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
+                            <div style="display: inline-block">
+                                <a>Incorporation Address</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                            </div>
+                            <a>Token name: RMT</a>
+                            <p style="margin:0; padding:0;color:#5c34a2">Supply: 21 million</p>
+                            <p style="margin:0; padding:0;color:#333">FLO Data : create 21 million rmt#</p>
+                        </div>
+                        <div class="blockinfo">
+                            <a
+                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
+                                #3445463</a>
+                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class='transactions-transaction'>
-                    <div style="display:flex; flex-direction:column; width:172px;">
-                        <div class='color-block-transaction'>
-                            <span style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Transactions</span>
-                            <span style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                    Success</span>
+                <div class='transactions token-transfer'>
+                    <div style="display:flex;">
+                        <div class='color-block-token-transfer'>
+                            <span
+                                style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                Token Transfer</span>
+                            <span
+                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                RMT</span>
+                        </div>
+                        <div class="transactions-content">
+                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
+                            <div style="display: inline-block">
+                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                            </div>
+                            <p style="margin:0; padding:0;color:#333">0.002 RMT</p>
+                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
+                        </div>
+                        <div class="blockinfo">
+                            <a
+                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
+                                #3445463</a>
+                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
                         </div>
                     </div>
-                    <div style="overflow:none" class="transactions-transaction-content">kjhkjkjdf</div>
-                    <div></div>
-                    
+                </div>
+
+                <div class='transactions transaction'>
+                    <div style="display:flex;">
+                        <div class='color-block-transaction'>
+                            <span
+                                style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                Transactions</span>
+                            <span
+                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                Success</span>
+                        </div>
+                        <div class="transactions-content">
+                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
+                            <div style="display: inline-block">
+                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                            </div>
+                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
+                        </div>
+                        <div class="blockinfo">
+                            <a
+                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
+                                #3445463</a>
+                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -924,8 +1058,6 @@
 
 
     <div style="width:100%;background:rgb(60,34,106)">
-
-
 
         <div class="footer" style="width:80%;margin:auto">
 
@@ -1002,8 +1134,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <div style="height:70px"></div>
     </div>
