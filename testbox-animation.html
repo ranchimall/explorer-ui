@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <style>
+            .box1class{
+                width:240px;
+                height:122px;
+                background:cyan; 
+                border-left: 4px solid #5c34a2;
+                margin-right: 15px;
+                margin-left: 15px;
+                flex-shrink: 0;
+            }
+
+            .box2class{
+                width:195px;
+                height:122px;
+                background:cyan; 
+                border-left: 4px solid #5c34a2;
+                margin-right: 15px;
+                margin-left: 15px;
+                flex-shrink: 0;
+            }
+
+            .box3class{
+                width:630px;
+                height:122px;
+                background:cyan; 
+                border-left: 4px solid #5c34a2;
+                margin-right: 15px;
+                margin-left: 15px;
+                margin-top: 9px;
+                margin-bottom: 9px;
+                flex-shrink: 0;
+            }
+
+            .container1{
+                display:flex; 
+                flex-direction:row; 
+                flex-wrap:nowrap; 
+                justify-content:center;
+            }
+
+            .container2{
+                display:flex; 
+                flex-direction:column; 
+                flex-wrap:nowrap; 
+                justify-content:center;
+            }
+
+            .element-transition{
+                transition: opacity 300ms ease-in-out;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div>Blocks</div>
+            <div id="main" class="container1">
+                <div id='box1'>
+                </div>
+                <div id='box2'>
+                </div>
+                <div id='box3'>
+                </div>
+                <div id='box4'>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function function1(x) {
+                console.log("Over 1200");
+                if (x.matches) { // If media query matches
+                    document.getElementById("main").className = "container1";
+                    document.getElementById("box1").className = "box1class";
+                    document.getElementById("box2").className = "box1class";
+                    document.getElementById("box3").className = "box1class";
+                    document.getElementById("box4").className = "box1class";
+                }
+            }
+            var x = window.matchMedia("(min-width: 1200px)");
+            function1(x); // Call listener function at run time
+            x.addListener(function1); // Attach listener function on state changes
+
+
+            function function2(y) {
+                console.log("Over 992-1200");
+                if (y.matches) { // If media query matches
+                    document.getElementById("main").className = "container1";
+                    document.getElementById("box1").className = "box2class";
+                    document.getElementById("box2").className = "box2class";
+                    document.getElementById("box3").className = "box2class";
+                    document.getElementById("box4").className = "box2class";
+                }
+            }
+            var y = window.matchMedia("(min-width: 992px) and (max-width: 1200px)");
+            function2(y); // Call listener function at run time
+            y.addListener(function2); // Attach listener function on state changes
+
+
+            function function3(z) {
+                console.log("Over 768-992");
+                if (z.matches) { // If media query matches
+                    document.getElementById("main").className = "container2";
+                    document.getElementById("box1").className = "box3class";
+                    document.getElementById("box2").className = "box3class";
+                    document.getElementById("box3").className = "box3class";
+                    document.getElementById("box4").className = "box3class";
+                } 
+            }
+            var z = window.matchMedia("(min-width: 768px) and (max-width: 992px)");
+            function2(z); // Call listener function at run time
+            z.addListener(function3); // Attach listener function on state changes
+        </script>
+    </body>
+</html>

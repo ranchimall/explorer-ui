@@ -1,0 +1,23 @@
+<html>
+<body>
+  <script src="https://livenet.flocha.in/socket.io/socket.io.js"></script>
+  <script>
+    function parseWebSocketTransaction(txobject){
+      
+
+    }
+
+    eventToListenTo = 'block'
+    room = 'inv'
+
+    var socket = io("https://livenet.flocha.in/");
+    socket.on('connect', function() {
+      // Join the room.
+      socket.emit('subscribe', room);
+    })
+    socket.on(eventToListenTo, function(data) {
+      console.log("New data received: " + data)
+    })
+  </script>
+</body>
+</html>

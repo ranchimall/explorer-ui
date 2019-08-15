@@ -565,6 +565,7 @@
 
     .card {
         background-color: #fff;
+        border-radius: 10px;
         border: none;
         box-shadow: 0 0 30px 0 rgba(202, 199, 226, .5);
         margin-bottom: 50px;
@@ -918,22 +919,6 @@
         flex: 0 0 16.66666667%;
         max-width: 16.66666667%;
     }
-
-    .card-tabs {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom: 1px solid #e2e5ec;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-        overflow: hidden;
-    }
 </style>
 
 <body>
@@ -965,198 +950,36 @@
         </div>
     </nav>
 
-    <!--<div style="width:100%; height:100px; background-color: red;"></div>-->
-
-    <div class="dashboard-banner-container">
-        <div class="dashboard-container">
-            <div class='dashboard-banner'>
-                <div class='dashboard-banner-network-graph'></div>
-                <div class='dashboard-banner-network-plain-container'>
-                    <div class="dashboard-banner-network-stats">
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Average block time </span>
-                            <span class="dashboard-banner-network-stats-value">5 seconds</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Total transactions </span>
-                            <span class="dashboard-banner-network-stats-value">6,676,915</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Total blocks </span>
-                            <span class="dashboard-banner-network-stats-value">9,427,373</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Wallet addresses </span>
-                            <span class="dashboard-banner-network-stats-value"
-                                data-selector="address-count">25,207</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Blocks Card -->
-    <div style="text-align:center; min-width:630px; max-width:1140px; margin:auto">
-        <div class="card">
-            <div class="container1">
-                <div style="display:flex;justify-content: space-between;">
-                    <h2
-                        style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
-                        Blocks</h2>
-                    <a class="viewall" href="#">View All Blocks</a>
-                </div>
-
-                <div id="blocks-card" style="display:flex; flex-direction:row; padding-top: 9px">
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>1 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345677</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>3 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345676</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>0 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345675</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>2 Transaction</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Transaction Card -->
-    <div style="text-align:center;min-width:630px;max-width:1140px;margin:auto">
-        <div class="card">
-            <div id="transactions-card" class="container2">
-                <div style="display:flex;justify-content: space-between;">
-                    <h2
-                        style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
-                        Transactions</h2>
-                    <a class="viewall" href="#">View All Blocks</a>
-                </div>
-
-                <div class='transactions token-creation'>
-                    <div style="display:flex;">
-                        <div class='color-block-token-creation'>
-                            <span
-                                style="color:#FB0112; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Creation</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                RMT</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>Incorporation Address</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+    <!-- Block details, Validator and reward-->
+    <main style="-webkit-box-flex: 1; flex-grow: 1; background-color: #fbfafc; padding-top: 3rem!important;">
+        <section style="max-width: 1140px; width: 100%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; display: block;">
+            <section>
+                <div id="topcards" style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
+                    <div id='blockdetails' style="padding-right: 0!important; flex: 0 0 66.66666667%; max-width: 66.66666667%; position: relative; width: 100%; min-height: 1px; padding-left: 15px; background-color: #fff; border-radius: 10px; border: none; box-shadow: 0 0 30px 0 rgba(202,199,226,.5); margin-bottom: 50px; margin-right: 50px; position: relative; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; min-width: 0; word-wrap: break-word;">
+                        <div style="padding: 30px; -webkit-box-flex: 1; flex: 1 1 auto; ">
+                            <h1 style="font-size: 18px; font-weight: 400; line-height: 1.2rem; margin-bottom: 2rem; margin-top: 0;">Block Details</h1>
+                            <h3 style="font-size: 14px; font-weight: 600; line-height: 36px; margin-top: 0; margin-bottom: .5rem; display: block;margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px;">Block Height: 9611922</h3>
+                            <div style="color: #828ba0!important; -webkit-box-pack: start!important; justify-content: flex-start!important; -webkit-box-orient: horizontal!important; -webkit-box-direction: normal!important; flex-direction: row!important;display: flex!important;">
+                                <span style="margin-right: 1.5rem!important; box-sizing: border-box; color: #828ba0!important;     -webkit-box-direction: normal!important;">0 Transactions</span>
+                                <span style="margin-right: 1.5rem!important;">588 bytes</span>
+                                <span style="margin-right: 1.5rem!important;">7 hours ago (June-28-2019 09:30:50 AM +5.5 UTC)</span>
                             </div>
-                            <a>Token name: RMT</a>
-                            <p style="margin:0; padding:0;color:#5c34a2">Supply: 21 million</p>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : create 21 million rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='transactions token-transfer'>
-                    <div style="display:flex;">
-                        <div class='color-block-token-transfer'>
-                            <span
-                                style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Transfer</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                RMT</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
-                            </div>
-                            <p style="margin:0; padding:0;color:#333">0.002 RMT</p>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                            <hr style="border-bottom: none; border-left: none; border-right: none; border-top: 1px solid #f5f6fa; margin: 30px 0; box-sizing: content-box; height: 0; overflow: visible; display: block; unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto;">
+                            <dl style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; margin-bottom: 12px; margin-top: 0; margin-block-start: 1em;
+                            margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px;">
+                                <dt style="color: #828ba0!important;-webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;font-weight: 400;">Hash</dt>
+                                <dd style="-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%; position: relative;
+                                width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; margin: 0; display: block; margin-inline-start: 40px;">
+                                    <a style="color: inherit; text-decoration: none;">0x80520563b0dc1ec3a66f9bd39a243b7ee432137f047bdd722849f2ddf4067ddc</a>
+                                </dd>
+                            </dl>
                         </div>
                     </div>
                 </div>
-
-                <div class='transactions transaction'>
-                    <div style="display:flex;">
-                        <div class='color-block-transaction'>
-                            <span
-                                style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Transactions</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                Success</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
-                            </div>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+            </section>
+        </section>
+    </main>
+    
 
     <div style="width:100%;background:rgb(60,34,106)">
 
@@ -1352,7 +1175,7 @@
         }
 
 
-        function parseFloData(floData, txdata) {
+        function parseFloData(floData, txdata ) {
             fetch(`http://127.0.0.1:5010/api/v1.0/parseFloData?floData=${floData}&blockhash=${txdata["blockhash"]}`)
                 .then(function (response) {
                     return response.json();
@@ -1372,75 +1195,75 @@
             if (parsed_floData['type'] == 'noise') {
 
             }
-            else if (parsed_floData['type'] == 'transfer' && parsed_floData['transferType'] == 'token') {
+            else if (parsed_floData['type']=='transfer' && parsed_floData['transferType']=='token') {
                 // create a token transfer block and append it to the transactions card
 
                 transactionType = document.createElement('div');
                 transactionType.setAttribute('class', 'transactions token-transfer');
 
-                // color block
-                color_block = document.createElement('div');
-                color_block.setAttribute('class', color - block - token - transfer);
+                    // color block
+                    color_block = document.createElement('div');
+                    color_block.setAttribute('class', color-block-token-transfer);
 
-                span1 = document.createElement('div');
-                span1.setAttribute("style", "color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;");
-                span1.innerText = "Token Transfer";
+                    span1 = document.createElement('div');
+                    span1.setAttribute("style", "color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;");
+                    span1.innerText = "Token Transfer";
 
-                span2 = document.createElement('div');
-                span2.setAttribute("style", "color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;");
-                span2.innerText = parsed_flodata['tokenIdentification'].toUpperCase();
+                    span2 = document.createElement('div');
+                    span2.setAttribute("style", "color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;");
+                    span2.innerText = parsed_flodata['tokenIdentification'].toUpperCase();
 
-                color_block.appendChild(span1);
-                color_block.appendChild(span2);
+                    color_block.appendChild(span1);
+                    color_block.appendChild(span2);
 
-                // transaction content 
-                transactionContent = document.createElement('div');
-                transactionContent.setAttribute("class", "transactions-content");
+                    // transaction content 
+                    transactionContent = document.createElement('div');
+                    transactionContent.setAttribute("class", "transactions-content");
+                    
+                    transactionHash = document.createElement('a');
+                    transactionHash.innerText = data.txid;
 
-                transactionHash = document.createElement('a');
-                transactionHash.innerText = data.txid;
-
-                transaction_ipop = document.createElement('div');
-                transaction_ipop.setAttribute('style', 'display: inline-block');
-                ipAddress = document.createElement('a');
-                ipAddress.innerText = txdata['vin'][0].addr;
-                arrowSymbol = document.createElement('i');
-                arrowSymbol.setAttribute('class', 'fas fa-long-arrow-alt-right');
-                opAddress = document.createElement('a');
-                for (var i = 0; i < txdata['vout'].length; i++) {
-                    if (txdata['vout'][i]['scriptPubKey']['type'] == 'pubkeyhash') {
-                        if (txdata['vout'][i]['scriptPubKey']['addresses'][0] == ipAddress) {
-                            continue;
+                    transaction_ipop = document.createElement('div');
+                    transaction_ipop.setAttribute('style', 'display: inline-block');
+                        ipAddress = document.createElement('a');
+                        ipAddress.innerText = txdata['vin'][0].addr;
+                        arrowSymbol = document.createElement('i');
+                        arrowSymbol.setAttribute('class', 'fas fa-long-arrow-alt-right');
+                        opAddress = document.createElement('a');
+                        for (var i = 0; i < txdata['vout'].length; i++) { 
+                            if (txdata['vout'][i]['scriptPubKey']['type']=='pubkeyhash'){
+                                if (txdata['vout'][i]['scriptPubKey']['addresses'][0]==ipAddress){
+                                    continue;                                
+                                    }
+                                opAddress.innerText = txdata['vout'][i]['scriptPubKey']['addresses'][0];
+                            }   
                         }
-                        opAddress.innerText = txdata['vout'][i]['scriptPubKey']['addresses'][0];
-                    }
-                }
-                transaction_ipop.appendChild(ipAddress); arrowSymbol
-                transaction_ipop.appendChild(arrowSymbol);
-                transaction_ipop.appendChild(opAddress);
+                    transaction_ipop.appendChild(ipAddress);arrowSymbol
+                    transaction_ipop.appendChild(arrowSymbol);
+                    transaction_ipop.appendChild(opAddress);
 
-                transferAmount = document.createElement('p');
-                transferAmount.setAttribute('style', 'margin:0; padding:0;color:#333');
-                transferAmount.innerText = `${tokenAmount} ${tokenIdentification}`;
+                    transferAmount = document.createElement('p');
+                    transferAmount.setAttribute('style', 'margin:0; padding:0;color:#333');
+                    transferAmount.innerText = `${tokenAmount} ${tokenIdentification}`;
 
-                floData_text = document.createElement('p');
-                floData_text.setAttribute('style', 'margin:0; padding:0;color:#333');
-                floData_text.innerText = `FLO Data : ${parsed_floData["floData"]}`;
+                    floData_text = document.createElement('p');
+                    floData_text.setAttribute('style', 'margin:0; padding:0;color:#333');
+                    floData_text.innerText = `FLO Data : ${parsed_floData["floData"]}`;
 
-                transactionContent.appendChild(transactionHash);
-                transactionContent.appendChild(transaction_ipop);
-                transactionContent.appendChild(transferAmount);
-                transactionContent.appendChild(floData_text);
+                    transactionContent.appendChild(transactionHash);
+                    transactionContent.appendChild(transaction_ipop);
+                    transactionContent.appendChild(transferAmount);
+                    transactionContent.appendChild(floData_text);
 
-                // block info
-                blockInfo = document.createElement('div');
-                blockInfo.setAttribute('class', 'blockinfo');
-                blockNumber = document.createElement('a');
-                blockNumber.setAttribute('style', 'color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;');
-                blockNumber.innerText = `Block #${txdata['blockheight']}`;
-                timeElapsed = document.createElement('div');
-                timeElapsed.setAttribute('style', 'font-weight:400; color:#828ba0;');
-                timeElapsed.innerText = "1 min ago";
+                    // block info
+                    blockInfo = document.createElement('div');
+                    blockInfo.setAttribute('class', 'blockinfo');
+                        blockNumber = document.createElement('a');
+                        blockNumber.setAttribute('style', 'color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;');
+                        blockNumber.innerText =  `Block #${txdata['blockheight']}`;
+                        timeElapsed = document.createElement('div');
+                        timeElapsed.setAttribute('style', 'font-weight:400; color:#828ba0;');
+                        timeElapsed.innerText = "1 min ago";
 
                 transactionType.appendChild(color_block);
                 transactionType.appendChild(transactionContent);

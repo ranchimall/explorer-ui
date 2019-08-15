@@ -542,13 +542,6 @@
         position: relative;
     }
 
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-
     .footer-logo-row {
         margin-bottom: 30px;
     }
@@ -565,6 +558,7 @@
 
     .card {
         background-color: #fff;
+        border-radius: 10px;
         border: none;
         box-shadow: 0 0 30px 0 rgba(202, 199, 226, .5);
         margin-bottom: 50px;
@@ -919,12 +913,37 @@
         max-width: 16.66666667%;
     }
 
+    .mr-4 {
+        margin-right: 1.5rem !important;
+    }
+
+    .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    dl {
+        margin-bottom: 12px;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
     .card-tabs {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
         border-bottom: 1px solid #e2e5ec;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -933,6 +952,18 @@
         -ms-flex-pack: start;
         justify-content: flex-start;
         overflow: hidden;
+        padding: 0 25px;
+    }
+
+    .card-tabs:hover{
+        background-color: rgba(91,56,159,0.2);
+        color: rgba(91,56,159,1);
+        transition-duration: 1s;
+    }
+
+    .card-tab-active{
+        background-color: rgba(91,56,159,1);
+        color: #fff;
     }
 </style>
 
@@ -965,196 +996,267 @@
         </div>
     </nav>
 
-    <!--<div style="width:100%; height:100px; background-color: red;"></div>-->
 
-    <div class="dashboard-banner-container">
-        <div class="dashboard-container">
-            <div class='dashboard-banner'>
-                <div class='dashboard-banner-network-graph'></div>
-                <div class='dashboard-banner-network-plain-container'>
-                    <div class="dashboard-banner-network-stats">
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Average block time </span>
-                            <span class="dashboard-banner-network-stats-value">5 seconds</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Total transactions </span>
-                            <span class="dashboard-banner-network-stats-value">6,676,915</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Total blocks </span>
-                            <span class="dashboard-banner-network-stats-value">9,427,373</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Wallet addresses </span>
-                            <span class="dashboard-banner-network-stats-value"
-                                data-selector="address-count">25,207</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Blocks Card -->
-    <div style="text-align:center; min-width:630px; max-width:1140px; margin:auto">
-        <div class="card">
-            <div class="container1">
-                <div style="display:flex;justify-content: space-between;">
-                    <h2
-                        style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
-                        Blocks</h2>
-                    <a class="viewall" href="#">View All Blocks</a>
-                </div>
-
-                <div id="blocks-card" style="display:flex; flex-direction:row; padding-top: 9px">
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
-                        </div>
+    <!-- Main is the whole section between header and footer-->
+    <div id='main'
+        style="-webkit-box-flex: 1; flex-grow: 1; background-color: #fbfafc; padding-top: 3rem!important; display: block; -webkit-box-direction: normal;">
+        <section
+            style="max-width: 1140px; width: 100%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; display:block;">
+            <!-- Block details, validators and block rewards -->
+            <section style="display: block;">
+                <div id="row" style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
+                    <!-- Block details -->
+                    <div
+                        style="padding-right: 0!important; -webkit-box-flex: 0; flex: 0 0 66.66666667%; max-width: 66.66666667%; position: relative; width: 100%; min-height: 1px; padding-left: 15px; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; font-size: 12px;">
                         <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>1 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345677</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>3 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345676</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>0 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345675</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>2 Transaction</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Transaction Card -->
-    <div style="text-align:center;min-width:630px;max-width:1140px;margin:auto">
-        <div class="card">
-            <div id="transactions-card" class="container2">
-                <div style="display:flex;justify-content: space-between;">
-                    <h2
-                        style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
-                        Transactions</h2>
-                    <a class="viewall" href="#">View All Blocks</a>
-                </div>
-
-                <div class='transactions token-creation'>
-                    <div style="display:flex;">
-                        <div class='color-block-token-creation'>
-                            <span
-                                style="color:#FB0112; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Creation</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                RMT</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>Incorporation Address</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                            style="background-color: #fff; border-radius: 10px; border: none; box-shadow: 0 0 30px 0 rgba(202,199,226,.5); margin-bottom: 50px; margin-right: 50px; position: relative; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; min-width: 0; word-wrap: break-word; background-clip: border-box; font-size: 12px; font-weight: 400; line-height: 1.5; color: #212529; text-align: left;">
+                            <div style="padding: 30px; -webkit-box-flex: 1; flex: 1 1 auto;">
+                                <h1
+                                    style="font-size: 18px; font-weight: 400; line-height: 1.2rem; margin-bottom: 2rem; margin-top: 0; margin-block-start: 1em; margin-block-end: 1em; display: block; margin-inline-start: 0px; margin-inline-end: 0px;">
+                                    Block Details </h1>
+                                <h3
+                                    style="font-size: 14px; font-weight: 600; line-height: 36px; margin-top: 0; margin-bottom: .5rem; display: block; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; -webkit-box-direction: normal;">
+                                    Block Height: 1234</h3>
+                                <div id="quick_block_details"
+                                    style="color:#828ba0 !important; -webkit-box-pack: start !important; justify-content: flex-start !important; -webkit-box-orient: horizontal !important;
+                                -webkit-box-direction: normal !important; flex-direction: row !important; display: flex !important; ">
+                                    <span class="mr-4"> 3 Transactions </span>
+                                    <span class="mr-4"> 1,180 bytes </span>
+                                    <span class="mr-4" data-from-now="2019-07-03 06:55:40.000000Z">25 minutes ago
+                                        (July-03-2019 12:25:40 PM +5.5 UTC)</span>
+                                </div>
+                                <hr
+                                    style="display: block; unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; box-sizing: content-box; height: 0; overflow: visible; border-bottom: none; border-left: none; border-right: none; border-top: 1px solid #f5f6fa; margin: 30px 0;">
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Hash</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="background-color:transparent; color: inherit; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Parent Hash</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="cursor: pointer; background-color: transparent; color: #5c34a2; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Difficulty</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="background-color:transparent; color: inherit; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Total Difficulty</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="background-color:transparent; color: inherit; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Nonce</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="background-color:transparent; color: inherit; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Gas Used</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="background-color:transparent; color: inherit; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt
+                                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%; color: #828ba0 !important;">
+                                        Gas Limit</dt>
+                                    <dd
+                                        style="display: block; margin-inline-start: 40px; margin:0; position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;-webkit-box-flex: 0; -ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;">
+                                        <a
+                                            style="background-color:transparent; color: inherit; text-decoration: none;">0xdeba74f413a9b07b63658bf6edb14e32c3f33a9ac9cd6e3864f88f3fc289f3d3</a>
+                                    </dd>
+                                </dl>
                             </div>
-                            <a>Token name: RMT</a>
-                            <p style="margin:0; padding:0;color:#5c34a2">Supply: 21 million</p>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : create 21 million rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
                         </div>
                     </div>
-                </div>
 
-                <div class='transactions token-transfer'>
-                    <div style="display:flex;">
-                        <div class='color-block-token-transfer'>
-                            <span
-                                style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Transfer</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                RMT</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                    <!-- Validator & Block Rewards Column -->
+                    <div
+                        style="position: relative; width: 100%; min-height: 1px; padding-right: 15px; flex: 0 0 33.33333333%; max-width: 33.33333333%; -webkit-box-flex: 0; display: flex !important; -webkit-box-orient: vertical !important; -webkit-box-direction: normal !important; -ms-flex-direction: column !important; flex-direction: column !important; padding-left: 0 !important;">
+                        <!-- Validator -->
+                        <div
+                            style="flex-grow: 1 !important; background-clip: border-box; flex-direction: column; min-width: 0; word-wrap: break-word; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; position: relative; box-shadow: 0 0 30px 0 rgba(202, 199, 226, 0.5); margin-bottom: 50px; border-radius: 10px; border: none; background-color: #5c34a2; color: #fff;">
+                            <div
+                                style="color: #fff; flex: 1 1 auto; -webkit-box-flex: 1; padding: 30px; justify-content: space-between; flex-direction: column; -webkit-box-pack: justify; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; ">
+                                <h2
+                                    style="color: #fff; -webkit-box-direction: normal; margin-block-start: 0.83em; margin-block-end: 0.83em; margin-inline-start: 0px; margin-inline-end: 0px; display: block; margin-top: 0; font-size: 18px; font-weight: normal; line-height: 1.2rem; margin-bottom: .5rem;">
+                                    Validator</h2>
+                                <div style="text-align:right!important;">
+                                    <h3
+                                        style="margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; display: block; text-overflow: ellipsis; white-space: nowrap; overflow:hidden; font-size: 12px; font-weight: bold; line-height: 1.2; margin: 0px 0px 12px; margin-bottom: 0;">
+                                        <a style="background-color: transparent; text-decoration: none; color: #fff;"
+                                            data-test="address_hash_link"
+                                            href="/poa/core/address/0x6e349be21acb0db3b2092fd4e3b738202842697e">
+                                            <span class=""
+                                                data-address-hash="0x6E349BE21Acb0db3B2092fd4E3B738202842697E">
+                                                <span data-toggle="tooltip" data-placement="top" title=""
+                                                    data-original-title="0x6E349BE21Acb0db3B2092fd4E3B738202842697E">Marat
+                                                    Pekker (0x6e349b...)</span>
+                                            </span>
+                                        </a>
+                                    </h3>
+                                </div>
                             </div>
-                            <p style="margin:0; padding:0;color:#333">0.002 RMT</p>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
                         </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class='transactions transaction'>
-                    <div style="display:flex;">
-                        <div class='color-block-transaction'>
-                            <span
-                                style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Transactions</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                Success</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                        <!-- Block Rewards -->
+                        <div
+                            style="margin-left: 0!important; flex-grow: 1!important; -webkit-box-flex: 1!important; background-clip: border-box; flex-direction: column; min-width: 0;  word-wrap: break-word; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; position: relative; box-shadow: 0 0 30px 0 rgba(202,199,226,.5); margin-bottom: 50px; background-color: #fff; border-radius: 10px; border: none; ">
+                            <div style="flex: 1 1 auto; -webkit-box-flex: 1; padding: 30px;">
+
                             </div>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
                         </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="display: block;">
+                <!-- Transaction Card -->
+                <div style="text-align:center;min-width:630px;max-width:1140px;margin:auto">
+                    <div class="card">
+                        <!-- Transaction tabs -->
+                        <div
+                            style="height:70px;margin:auto; border-bottom: 1px solid #e2e5ec; background-color: #fff; border-radius:10px 10px 0px 0px; display:flex; flex-direction:row;">
+                            <div
+                                style="display: flex; font-size: 14px; font-weight: 400; height: 70px; text-align: center;">
+                                <a class="card-tabs card-tab-active">Transactions</a>
+                                <a class="card-tabs">Tokens</a>
+                                <a class="card-tabs">Internal Transactions</a>
+                            </div>
+                        </div>
+
+                        <div id="transactions-card" class="container2">
+                            <div style="display:flex;justify-content: space-between;">
+                                <h2
+                                    style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
+                                    Transactions</h2>
+                                <a class="viewall" href="#">View All Blocks</a>
+                            </div>
+
+                            <div class='transactions token-creation'>
+                                <div style="display:flex;">
+                                    <div class='color-block-token-creation'>
+                                        <span
+                                            style="color:#FB0112; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                            Token Creation</span>
+                                        <span
+                                            style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                            RMT</span>
+                                    </div>
+                                    <div class="transactions-content">
+                                        <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
+                                        <div style="display: inline-block">
+                                            <a>Incorporation Address</a>
+                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                            <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                                        </div>
+                                        <a>Token name: RMT</a>
+                                        <p style="margin:0; padding:0;color:#5c34a2">Supply: 21 million</p>
+                                        <p style="margin:0; padding:0;color:#333">FLO Data : create 21 million rmt#</p>
+                                    </div>
+                                    <div class="blockinfo">
+                                        <a
+                                            style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
+                                            #3445463</a>
+                                        <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='transactions token-transfer'>
+                                <div style="display:flex;">
+                                    <div class='color-block-token-transfer'>
+                                        <span
+                                            style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                            Token Transfer</span>
+                                        <span
+                                            style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                            RMT</span>
+                                    </div>
+                                    <div class="transactions-content">
+                                        <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
+                                        <div style="display: inline-block">
+                                            <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
+                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                            <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                                        </div>
+                                        <p style="margin:0; padding:0;color:#333">0.002 RMT</p>
+                                        <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
+                                    </div>
+                                    <div class="blockinfo">
+                                        <a
+                                            style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
+                                            #3445463</a>
+                                        <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='transactions transaction'>
+                                <div style="display:flex;">
+                                    <div class='color-block-transaction'>
+                                        <span
+                                            style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
+                                            Transactions</span>
+                                        <span
+                                            style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
+                                            Success</span>
+                                    </div>
+                                    <div class="transactions-content">
+                                        <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
+                                        <div style="display: inline-block">
+                                            <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
+                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                            <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
+                                        </div>
+                                        <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
+                                    </div>
+                                    <div class="blockinfo">
+                                        <a
+                                            style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
+                                            #3445463</a>
+                                        <div style="font-weight:400; color:#828ba0;">1 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
+            </section>
+        </section>
     </div>
 
 

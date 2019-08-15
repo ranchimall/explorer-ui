@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <div id="textid">
+
+        </div>
+
+        <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var customdata = urlParams.get('custom') || 'default';
+            
+            var divElement = document.getElementById('textid');
+            divElement.innerText = customdata;
+        </script>
+    </body>
+</html>

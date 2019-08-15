@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    
 </head>
 
 <!-- THIS IS A BEAUTIFUL SOLUTION -->
@@ -945,299 +946,37 @@
                     src="FLO_horizontal_text1.svg" alt="POA Core">
             </a>
 
-            <div class="navbarmenu_search">
-                <ul> </ul>
-                <div class="searchform_container">
-                    <form action="" class="search_form" method="get">
-                        <!-- <div class="input-group" title="Search by address, token symbol name, transaction hash, or block number">
-                        <div class="awesomplete"><input aria-describedby="search-icon" aria-label="Search" class="form-control me auto" data-test="search_input" id="q" name="q" placeholder="Search by address, token symbol name, transaction hash, or block number" type="text" autocomplete="off" aria-autocomplete="list"><ul hidden=""></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-relevant="additions"></span></div><script type="text/javascript">AwesompleteUtil.start('#q', {url: '/poa/core/token_autocomplete?q=', limit: 0}, {minChars: 2, data: function(rec, input) { return { label: (rec['contract_address_hash'] || '').replace('<p>', '<p >')+'<p>'+(rec['symbol'] || ''), value: rec['contract_address_hash']+'|'+(rec['symbol'] || '').replace('|', ' ') }; }, replace: function(data) { var text = data.value.substring(0, data.value.lastIndexOf('|')); this.input.value = text; }, filter: AwesompleteUtil.filterContains, item: AwesompleteUtil.itemMarkAll});</script> <div class="input-group-append">
-                        <button class="input-group-text" id="search-icon">
-                        <svg viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg" width="16" height="17">
-                        <path fill="#7DD79F" fill-rule="evenodd" d="M15.713 15.727a.982.982 0 0 1-1.388 0l-2.289-2.29C10.773 14.403 9.213 15 7.5 15A7.5 7.5 0 1 1 15 7.5c0 1.719-.602 3.284-1.575 4.55l2.288 2.288a.983.983 0 0 1 0 1.389zM7.5 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 1 0 0-11z"></path>
-                        </svg>
-                        </button>
+            <div style="-webkit-box-direction: normal; align-items: center;flex-grow: 1; -webkit-box-align: center; -webkit-box-flex: 1; display: flex!important; flex-basis: auto;">
+                <ul style="margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; padding-inline-start: 40px; margin-top: 0; margin-right: auto!important; padding-left: 0; margin-bottom: 0; list-style: none; display:flex; flex-direction: row; -webkit-box-orient: horizontal; -webkit-box-direction: normal; flex-grow: 1; -webkit-box-flex: 1;"></ul>
+                <div style="display: flex!important; height: 57px; margin-bottom: -8px; margin-top: -8px;">
+                    <form style="margin-top: 0!important; margin-bottom: 0!important; align-items: center; flex-flow: row wrap; -webkit-box-align: center; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; height: 100%;">
+                        <div style="align-items: stretch; flex-wrap: wrap; -webkit-box-align: stretch; display: flex; width: auto; height: 100%; position: relative;">
+
                         </div>
-                        </div>-->
-                        <button class="search_button" type="submit">Search</button>
+                        <button class="fa fa-search" aria-hidden="true" style="-webkit-writing-mode: horizontal-tb !important;     font: 400 13.3333px Arial;     text-indent: 0px;
+                        text-shadow: none;     letter-spacing: normal;
+    word-spacing: normal;     text-rendering: auto;     align-items: flex-start;     font-family: inherit;     text-transform: none; 
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px; -webkit-appearance: button;     font-size: 1rem; user-select: none;     font-weight: 400;     color: #20b760;
+    background-color: transparent;
+    background-image: none;     margin-top: 0!important;     margin-bottom: 0!important; transition: all .4s ease-in-out;
+    white-space: nowrap;    display: inline-block;
+    line-height: 1.2;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;     border-radius: 2px;
+    border: none; cursor:pointer;"></button>
                     </form>
                 </div>
             </div>
+
+            
         </div>
     </nav>
-
-    <!--<div style="width:100%; height:100px; background-color: red;"></div>-->
-
-    <div class="dashboard-banner-container">
-        <div class="dashboard-container">
-            <div class='dashboard-banner'>
-                <div class='dashboard-banner-network-graph'></div>
-                <div class='dashboard-banner-network-plain-container'>
-                    <div class="dashboard-banner-network-stats">
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Average block time </span>
-                            <span class="dashboard-banner-network-stats-value">5 seconds</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Total transactions </span>
-                            <span class="dashboard-banner-network-stats-value">6,676,915</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Total blocks </span>
-                            <span class="dashboard-banner-network-stats-value">9,427,373</span>
-                        </div>
-                        <div class="dashboard-banner-network-stats-item">
-                            <span class="dashboard-banner-network-stats-label">
-                                Wallet addresses </span>
-                            <span class="dashboard-banner-network-stats-value"
-                                data-selector="address-count">25,207</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Blocks Card -->
-    <div style="text-align:center; min-width:630px; max-width:1140px; margin:auto">
-        <div class="card">
-            <div class="container1">
-                <div style="display:flex;justify-content: space-between;">
-                    <h2
-                        style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
-                        Blocks</h2>
-                    <a class="viewall" href="#">View All Blocks</a>
-                </div>
-
-                <div id="blocks-card" style="display:flex; flex-direction:row; padding-top: 9px">
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345678</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>1 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345677</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>3 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345676</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>0 Transaction</div>
-                        </div>
-                    </div>
-                    <div class='box1class'>
-                        <div style="flex:0 0 30px;text-align: left"><a href="#"
-                                style="padding:16px 16px 0px 16px; margin-bottom:12px;">345675</a>
-                        </div>
-                        <div
-                            style="background: #f6f7f9;flex:1 1 100px;text-align: left; padding:12.8px 16px 12.8px 16px">
-                            <div>2 Transaction</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Transaction Card -->
-    <div style="text-align:center;min-width:630px;max-width:1140px;margin:auto">
-        <div class="card">
-            <div id="transactions-card" class="container2">
-                <div style="display:flex;justify-content: space-between;">
-                    <h2
-                        style="text-align:left; font-size:18px; font-weight:400;  margin-left:14px; line-height:1.2rem; margin-bottom:2rem; display:block; margin-block-start:0.83em; margin-block-end:0.83em;">
-                        Transactions</h2>
-                    <a class="viewall" href="#">View All Blocks</a>
-                </div>
-
-                <div class='transactions token-creation'>
-                    <div style="display:flex;">
-                        <div class='color-block-token-creation'>
-                            <span
-                                style="color:#FB0112; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Creation</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                RMT</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>Incorporation Address</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
-                            </div>
-                            <a>Token name: RMT</a>
-                            <p style="margin:0; padding:0;color:#5c34a2">Supply: 21 million</p>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : create 21 million rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='transactions token-transfer'>
-                    <div style="display:flex;">
-                        <div class='color-block-token-transfer'>
-                            <span
-                                style="color:#ef9a60; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Token Transfer</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                RMT</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
-                            </div>
-                            <p style="margin:0; padding:0;color:#333">0.002 RMT</p>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='transactions transaction'>
-                    <div style="display:flex;">
-                        <div class='color-block-transaction'>
-                            <span
-                                style="color:#4786ff; font-size: 12px; font-weight: 700; line-height: 1.2; margin: 0 0 2px; text-align: center;">
-                                Transactions</span>
-                            <span
-                                style="color:inherit; font-size: 12px; font-weight: 400; line-height: 1.2; text-align:center; padding: 0 5px;">
-                                Success</span>
-                        </div>
-                        <div class="transactions-content">
-                            <a>3c0c391d1ec5db8c6636996b6479c25a4a939fb7e9f14d899d41431c5d0a6aad</a>
-                            <div style="display: inline-block">
-                                <a>FTzJDDP1q2WgwfGcqgYjdUM17yFagYrax7</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                                <a>FGYbnpkK8cnNmXoDVYSt3KgWm3ECJNoRja</a>
-                            </div>
-                            <p style="margin:0; padding:0;color:#333">FLO Data : transfer 0.002 rmt#</p>
-                        </div>
-                        <div class="blockinfo">
-                            <a
-                                style="color: #5c34a2; text-decoration:none;background-color: transparent; font-size: 12px; line-height: 1.4rem;">Block
-                                #3445463</a>
-                            <div style="font-weight:400; color:#828ba0;">1 min ago</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <div style="width:100%;background:rgb(60,34,106)">
-
-        <div class="footer" style="width:80%;margin:auto">
-
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59pt"
-                height="27pt" viewBox="0 0 59 27" version="1.1">
-
-                <g id="surface1">
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
-                        d="M 46.871094 22.328125 L 39.714844 22.328125 L 39.714844 12.007812 L 41.496094 12.007812 L 41.496094 20.691406 L 46.871094 20.691406 Z M 46.871094 22.328125 " />
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white"
-                        d="M 53.628906 22.503906 C 52.839844 22.503906 52.121094 22.363281 51.46875 22.085938 C 50.816406 21.804688 50.257812 21.421875 49.789062 20.941406 C 49.324219 20.460938 48.957031 19.898438 48.695312 19.253906 C 48.433594 18.609375 48.300781 17.925781 48.300781 17.195312 L 48.300781 17.167969 C 48.300781 16.4375 48.433594 15.753906 48.695312 15.109375 C 48.957031 14.464844 49.328125 13.902344 49.804688 13.414062 C 50.28125 12.929688 50.847656 12.542969 51.5 12.257812 C 52.148438 11.972656 52.871094 11.832031 53.660156 11.832031 C 54.445312 11.832031 55.167969 11.96875 55.820312 12.25 C 56.472656 12.53125 57.03125 12.910156 57.496094 13.394531 C 57.964844 13.875 58.332031 14.4375 58.59375 15.082031 C 58.855469 15.726562 58.988281 16.410156 58.988281 17.136719 L 58.988281 17.167969 C 58.988281 17.894531 58.855469 18.578125 58.59375 19.222656 C 58.332031 19.867188 57.960938 20.433594 57.484375 20.917969 C 57.007812 21.40625 56.441406 21.792969 55.789062 22.074219 C 55.136719 22.359375 54.417969 22.503906 53.628906 22.503906 M 53.660156 20.839844 C 54.164062 20.839844 54.625 20.742188 55.046875 20.550781 C 55.46875 20.359375 55.828125 20.097656 56.128906 19.769531 C 56.429688 19.441406 56.667969 19.054688 56.835938 18.613281 C 57.003906 18.167969 57.089844 17.699219 57.089844 17.195312 L 57.089844 17.167969 C 57.089844 16.667969 57.003906 16.191406 56.835938 15.746094 C 56.667969 15.296875 56.429688 14.910156 56.125 14.578125 C 55.816406 14.25 55.453125 13.988281 55.027344 13.789062 C 54.597656 13.59375 54.132812 13.496094 53.628906 13.496094 C 53.125 13.496094 52.664062 13.589844 52.242188 13.785156 C 51.820312 13.976562 51.460938 14.234375 51.15625 14.566406 C 50.859375 14.894531 50.621094 15.28125 50.453125 15.722656 C 50.285156 16.164062 50.199219 16.636719 50.199219 17.136719 L 50.199219 17.167969 C 50.199219 17.667969 50.285156 18.140625 50.453125 18.589844 C 50.621094 19.039062 50.859375 19.425781 51.164062 19.753906 C 51.472656 20.085938 51.835938 20.347656 52.261719 20.542969 C 52.691406 20.738281 53.15625 20.839844 53.660156 20.839844 Z M 53.660156 20.839844 " />
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
-                        d="M 30.140625 16.488281 L 30.140625 22.328125 L 31.921875 22.328125 L 31.921875 18.125 L 37.074219 18.125 L 37.074219 16.488281 Z M 30.140625 16.488281 " />
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
-                        d="M 30.140625 12.007812 L 30.140625 13.644531 L 37.730469 13.644531 L 37.730469 12.007812 Z M 30.140625 12.007812 " />
-                    <path style=" stroke:none;fill-rule:nonzero;fill:white;"
-                        d="M 13.109375 19.214844 C 11.601562 21.222656 11.601562 23.203125 13.109375 25.144531 C 14.617188 23.203125 14.617188 21.222656 13.109375 19.214844 M 13.109375 2.800781 C 9.648438 7.207031 9.648438 11.6875 13.109375 16.25 C 16.570312 11.6875 16.570312 7.207031 13.109375 2.800781 Z M 5.273438 22.441406 C 6.546875 19.515625 9.21875 18.070312 12.203125 18.105469 C 8.417969 14.140625 5.128906 12.539062 2.339844 13.3125 C 2.710938 15.5 4.21875 17.359375 6.859375 18.890625 C 3.820312 17.921875 1.53125 15.578125 0 11.859375 C 4.558594 11.074219 8.152344 12.210938 10.773438 15.261719 C 8.382812 10.101562 9.160156 5.007812 13.109375 -0.0117188 C 17.058594 5.007812 17.835938 10.097656 15.445312 15.261719 C 18.066406 12.210938 21.660156 11.074219 26.21875 11.859375 C 24.6875 15.578125 22.398438 17.921875 19.359375 18.890625 C 22 17.359375 23.507812 15.5 23.878906 13.3125 C 21.089844 12.542969 17.800781 14.140625 14.015625 18.105469 C 17 18.070312 19.671875 19.515625 20.945312 22.441406 C 18.691406 22.953125 16.835938 22.601562 15.382812 21.394531 C 16.972656 22.207031 18.339844 22.328125 19.492188 21.757812 C 18.988281 20.21875 16.757812 19.152344 13.90625 18.5625 C 15.53125 21.410156 15.265625 24.21875 13.109375 26.980469 C 10.953125 24.21875 10.6875 21.410156 12.3125 18.5625 C 9.460938 19.152344 7.230469 20.21875 6.726562 21.757812 C 7.878906 22.328125 9.246094 22.207031 10.835938 21.394531 C 9.382812 22.601562 7.527344 22.953125 5.273438 22.441406 Z M 5.273438 22.441406 " />
-                </g>
-            </svg>
-
-            <div style="display:flex;justify-content: flex-start;margin-top:30px">
-                <div class="footerBar" style="max-width: 200px;margin-right: 100px">
-                    <div style="padding-right:30px">Floscout is a tool for inspecting and analyzing FLO based tokens and
-                        smart contracts. Token and Smart Contract explorer for FLO Network.</div>
-
-                    <div style="color:#bda6e7;font-size: 18px;margin-top:25px">
-                        <a href="h#" rel="noreferrer" target="_blank" title="Github">
-                            <i class="fab fa-github fa-lg"></i>
-                        </a>
-                        <a href="#" rel="noreferrer" target="_blank" title="Twitter">
-                            <i class="fab fa-twitter fa-lg"></i>
-                        </a>
-                        <a href="#" rel="noreferrer" target="_blank" title="Telegram">
-                            <i class="fab fa-telegram fa-lg"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footerBar">
-                    <h3>
-                        Blockscout
-                    </h3>
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                    </ul>
-                </div>
-
-                <div class="footerBar">
-                    <h3>
-                        Tokens
-
-                    </h3>
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                    </ul>
-                </div>
-
-                <div class="footerBar">
-                    <h3>
-                        Smart Contracts
-
-                    </h3>
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div style="height:70px"></div>
-    </div>
 
 
     <script src="https://flosight.duckdns.org/socket.io/socket.io.js"></script>
